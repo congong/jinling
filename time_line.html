@@ -21,9 +21,17 @@
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
     <legend>2021年时间线</legend>
 </fieldset>
+
+<div class="words"></div>
+
+<div class="days">
+    臭宝贝儿,今天是认识你的第
+    <span class="days-number"></span>天
+</div>
+
+
 <ul class="layui-timeline" id="my_timeline">
 </ul>
-
 
 <script src="js/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
@@ -33,46 +41,80 @@
         var $ = layui.jquery;
         var layer = layui.layer;
 
-        var template_li='<li class="layui-timeline-item"><i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">{day}</h3><p> {title}</p><p>标签：{label}</p> </div></li>'
-        var data=[
-            {"day":"3月5号","title":"第一天 一伴认识","label":"第一印象,冰天雪地的照片儿,感觉暖暖哒"},
-            {"day":"3月6号","title":"聊天","label":"这个女孩儿总是撩我,哈哈"},
-            {"day":"3月7号","title":"加微信","label":"男人要矜持，让妹子来加我"},
-            {"day":"3月8号","title":"第一次电话","label":"清晨叫我起床上班"},
-            {"day":"3月9号","title":"第一次见面","label":"周二，请假来找我，青年湖四圈，麦当劳，卡片;第一印象淑女,嘿嘿,我想抱抱亲亲🤪🤪🤪"},
-            {"day":"3月12号","title":"马路边边","label":" 马路边边，第一次牵手"},
-            {"day":"3月13号","title":"自习室","label":" 斯是陋室，惟吾德馨自习室"},
-            {"day":"3月14号","title":"通州图书馆","label":" 庆丰包子铺，冷了，没给我衣服穿哈哈"},
-            {"day":"3月16号","title":"来找我","label":" 炒面片，青年湖"},
-            {"day":"3月18号","title":"张妈妈","label":" 辣！辣！辣！辣！辣！辣！好吃！好吃！好吃！好吃！好吃！好吃！哈哈！"},
-            {"day":"3月19号","title":"周五晚上见面","label":"见姐姐吃饭，晚上下雨；第一次住在一起，妹子很霸气；"},
-            {"day":"3月20号","title":"周六","label":" 早上陪伴去推拿，我回家，臭宝去图书馆"},
-            {"day":"3月21号","title":"通图","label":"周日"},
-            {"day":"3月23号","title":"臭宝宝","label":"晚上给我做饭,竟然不让我插手;中午,大姨妈终于来了,哈哈"},
-            {"day":"3月24号","title":"大酱汤","label":"一逛超市买菜,晚上臭宝宝给我做的大酱汤"},
-            {"day":"3月26号","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
-            {"day":"3月27号","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
-            {"day":"3月28号","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
-            {"day":"3月29号","title":"陪伴","label":"回来之后,互相陪伴3天"},
-            {"day":"3月30号","title":"草莓小米粥?","label":"我做饭搞砸了,熬粥,糊了;尬!尬!尬!尬!尬!"},
-            {"day":"4月2号","title":"补个30年生日","label":"白玫瑰蛋糕，香水，大宝宝辛辛苦苦背一包水果，买衣服"},
-            {"day":"4月3号","title":"通州图书馆","label":"陪伴推拿检查，留大宝宝独守空房，给臭宝洗臭袜子"},
-            {"day":"4月4号","title":"通州图书馆","label":"给臭宝做早饭（煎饺💯），买袜子，买杯子，买零食，衣食住行买买买，离别"},
-            {"day":"4月5号","title":"天坛公园","label":"遛遛遛，咔咔咔咔，合生汇逛吃逛吃,糖葫芦,猪蹄,鸡爪,花甲粉,hotwind衬衫"},
-            {"day":"4月8号","title":"甚是想念，千里奔见","label":"拉伸嗷嗷叫🤓🤪，饺子🥟，芒果果冻"},
-            {"day":"4月9号","title":"Happy Friday","label":"奔奔奔，床与衣服的冲突"},
-            {"day":"4月10号","title":"通州图书馆","label":"穿臭宝外套拍照🤪，虎虎酒🤨🤨，阿凡达，缺少烛光的烛光晚餐"},
-            {"day":"4月11号","title":"通州图书馆","label":"图书馆地铁卡卡卡，散步，加量版湖南米粉，小肚囊鼓鼓哒"},
-            {"day":"4月12号","title":"想想想♾️","label":"充充充，冲冲冲，熬熬熬"},
-        ]
-        var arr=[]
-        for (var i = 0; i < data.length; i++) {
-            var item=data[i]
-            var temp=template_li.replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
-            arr.push(temp)
+        var active = {
+            initContent:function () {
+                var template_li='<li class="layui-timeline-item"><i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">{day}</h3><p> {title}</p><p>标签：{label}</p> </div></li>'
+                var data=[
+                    {"day":"3月5号","title":"第一天 一伴认识","label":"第一印象,冰天雪地的照片儿,感觉暖暖哒"},
+                    {"day":"3月6号","title":"聊天","label":"这个女孩儿总是撩我,哈哈"},
+                    {"day":"3月7号","title":"加微信","label":"男人要矜持，让妹子来加我"},
+                    {"day":"3月8号","title":"第一次电话","label":"清晨叫我起床上班"},
+                    {"day":"3月9号","title":"第一次见面","label":"周二，请假来找我，青年湖四圈，麦当劳，卡片;第一印象淑女,嘿嘿,我想抱抱亲亲🤪🤪🤪"},
+                    {"day":"3月12号","title":"马路边边","label":" 马路边边，第一次牵手"},
+                    {"day":"3月13号","title":"自习室","label":" 斯是陋室，惟吾德馨自习室"},
+                    {"day":"3月14号","title":"通州图书馆","label":" 庆丰包子铺，冷了，没给我衣服穿哈哈"},
+                    {"day":"3月16号","title":"来找我","label":" 炒面片，青年湖"},
+                    {"day":"3月18号","title":"张妈妈","label":" 辣！辣！辣！辣！辣！辣！好吃！好吃！好吃！好吃！好吃！好吃！哈哈！"},
+                    {"day":"3月19号","title":"周五晚上见面","label":"见姐姐吃饭，晚上下雨；第一次住在一起，妹子很霸气；"},
+                    {"day":"3月20号","title":"周六","label":" 早上陪伴去推拿，我回家，臭宝去图书馆"},
+                    {"day":"3月21号","title":"通图","label":"周日"},
+                    {"day":"3月23号","title":"臭宝宝","label":"晚上给我做饭,竟然不让我插手;中午,大姨妈终于来了,哈哈"},
+                    {"day":"3月24号","title":"大酱汤","label":"一逛超市买菜,晚上臭宝宝给我做的大酱汤"},
+                    {"day":"3月26号","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
+                    {"day":"3月27号","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
+                    {"day":"3月28号","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
+                    {"day":"3月29号","title":"陪伴","label":"回来之后,互相陪伴3天"},
+                    {"day":"3月30号","title":"草莓小米粥?","label":"我做饭搞砸了,熬粥,糊了;尬!尬!尬!尬!尬!"},
+                    {"day":"4月2号","title":"补个30年生日","label":"白玫瑰蛋糕，香水，大宝宝辛辛苦苦背一包水果，买衣服"},
+                    {"day":"4月3号","title":"通州图书馆","label":"陪伴推拿检查，留大宝宝独守空房，给臭宝洗臭袜子"},
+                    {"day":"4月4号","title":"通州图书馆","label":"给臭宝做早饭（煎饺💯），买袜子，买杯子，买零食，衣食住行买买买，离别"},
+                    {"day":"4月5号","title":"天坛公园","label":"遛遛遛，咔咔咔咔，合生汇逛吃逛吃,糖葫芦,猪蹄,鸡爪,花甲粉,hotwind衬衫"},
+                    {"day":"4月8号","title":"甚是想念，千里奔见","label":"拉伸嗷嗷叫🤓🤪，饺子🥟，芒果果冻"},
+                    {"day":"4月9号","title":"Happy Friday","label":"奔奔奔，床与衣服的冲突"},
+                    {"day":"4月10号","title":"通州图书馆","label":"穿臭宝外套拍照🤪，虎虎酒🤨🤨，阿凡达，缺少烛光的烛光晚餐"},
+                    {"day":"4月11号","title":"通州图书馆","label":"图书馆地铁卡卡卡，散步，加量版湖南米粉，小肚囊鼓鼓哒"},
+                    {"day":"4月12号","title":"想想想♾️","label":"充充充，冲冲冲，熬熬熬"},
+                ]
+                var arr=[]
+                for (var i = 0; i < data.length; i++) {
+                    var item=data[i]
+                    var temp=template_li.replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
+                    arr.push(temp)
+                }
+                arr.push('<li class="layui-timeline-item"><i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">未来</h3><p>......</p></div></li>')
+                $("#my_timeline").html(arr)
+            }
+            ,daysNumber:function () {
+                var arr = "2021-03-07 00:00:00".split(/[- :]/);
+                var f = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
+                var b = parseInt(new Date() - f) / 1000;
+                var e = parseInt(b % 60);
+                if (e < 10) {
+                    e = "0" + e
+                }
+                b = parseInt(b / 60);
+                var d = b % 60;
+                if (d < 10) {
+                    d = "0" + d
+                }
+                b = parseInt(b / 60);
+                var c = b % 24;
+                if (c < 10) {
+                    c = "0" + c
+                }
+                b = parseInt(b / 24);
+                var a = b;
+                document.getElementsByClassName("days-number")[0].innerHTML = ("" + a);
+                // document.getElementsByClassName("seconds")[0].innerHTML = (c + " 时 " + d + " 分 " + e + " 秒")
+            }
+            ,init:function () {
+                this.daysNumber();
+                this.initContent();
+            }
         }
-        arr.push('<li class="layui-timeline-item"><i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">未来</h3><p>......</p></div></li>')
-        $("#my_timeline").html(arr)
+
+        active.init();
+        layer.msg("你好真美呀...")
 
     });
 
