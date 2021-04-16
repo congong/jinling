@@ -186,12 +186,31 @@
                     }
                 })
             }
+            ,myPlay:function () {
+                //添加背景音乐（解决苹果手机不能自动播放问题）
+                var audio = document.getElementById('Jaudio'),
+                    play = function(){
+                        audio.play();
+                        document.removeEventListener("touchstart",play, false);
+                    };
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {//微信
+                    play();
+                }, false);
+                document.addEventListener('YixinJSBridgeReady', function() {//易信
+                    play();
+                }, false);
+                document.addEventListener("touchstart",play, false);
+            }
             ,init:function () {
                 this.daysNumber();
                 this.initContent();
                 this.theWord();
                 this.initdate();
+                this.myPlay();
+
             }
+
         }
 
         active.init();
