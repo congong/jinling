@@ -89,9 +89,10 @@
                 {"day":"2021-04-12","title":"想想想♾️","label":"充充充，冲冲冲，熬熬熬"},
                 {"day":"2021-04-13","title":"夜游前门","label":"夹夹夹,系系系,糖葫芦,东来顺火锅,互相夹菜🤪小男人被臭宝包养的一天,2号线前门地铁小别离"},
                 {"day":"2021-04-14","title":"（想你-∞，+∞想你）","label":"克制克制克制,没有一分钟没有买一送一"},
+                {"day":"2021-04-15","title":"飓能吃","label":"我做的皮蛋瘦肉粥，臭宝宝喝了3碗"},
 
-            ],
-            initContent:function () {
+            ]
+            ,initContent:function () {
                 var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">{day}</h3><p> {title}</p><p>标签：{label}</p> </div></li>'
 
                 var arr=[]
@@ -103,7 +104,7 @@
                 arr.push('<li class="layui-timeline-item" > <a name="future"></a> <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">未来</h3><p>......</p></div></li>')
                 $("#my_timeline").html(arr)
             }
-            ,daysNumber:function () {
+            ,dispDiffDays:function () {
                 var arr = "2021-03-07 00:00:00".split(/[- :]/);
                 var f = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
                 var b = parseInt(new Date() - f) / 1000;
@@ -126,7 +127,7 @@
                 document.getElementsByClassName("days-number")[0].innerHTML = ("" + a);
                 // document.getElementsByClassName("seconds")[0].innerHTML = (c + " 时 " + d + " 分 " + e + " 秒")
             }
-            ,theWord:function () {
+            ,theEndWord:function () {
                 var theWord=[
                     "想念一张脸。我也如此，闭上眼，脑海满满都是你的样子，挥之不去。",
                     "如果没有如果，时间是否会为我们停留？曾经看过的夕阳，听过的潮落，都被时间掩埋，幻成泡沫。",
@@ -158,18 +159,16 @@
             }
             ,initdate:function(){
                 // console.log(this.all_content)
-                var marks={
-                    '0-1-14': '生日' //每年的日期
-                    ,'0-3-5': '周年' //每年的日期
-                    ,'0-0-20': '姨妈' //每月某天
-                    ,'2021-4-2': '<i class=\'layui-icon layui-icon-heart-fill\' style=\'font-size: 20px; color: red;\'/>' //如果为空字符，则默认显示数字+徽章
-                    ,'2021-4-16': '<i class=\'layui-icon layui-icon-heart-fill\' style=\'font-size: 20px; color: red;\'/>'
-                }
+                var marks={}
                 for (var i = 0; i < this.all_content.length; i++) {
                     var item=this.all_content[i]
                     marks[item.day]='' //如果为空字符，则默认显示数字+徽章
                 }
-                // console.log(marks)
+                marks['0-1-14']='生日'
+                marks['0-3-5']= '周年'
+                marks['0-0-20']= '姨妈'
+                marks['2021-4-2'] ='<i class=\'layui-icon layui-icon-heart-fill\' style=\'font-size: 20px; color: red;\'/>' //如果为空字符，则默认显示数字+徽章
+                marks['2021-4-16']= '<i class=\'layui-icon layui-icon-heart-fill\' style=\'font-size: 20px; color: red;\'/>'
 
                 laydate.render({
                     elem: '#DisplayDateID' //指定元素
@@ -209,9 +208,9 @@
                 document.addEventListener("touchstart",play, false);
             }
             ,init:function () {
-                this.daysNumber();
+                this.dispDiffDays();
                 this.initContent();
-                this.theWord();
+                this.theEndWord();
                 this.initdate();
                 this.autoPlay();
 
