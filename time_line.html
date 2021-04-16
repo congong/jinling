@@ -20,12 +20,12 @@
 
 <body >
 <!--文字转音频网站  https://www.toolfk.com/tool-online-text2video -->
-<audio  autoplay="autoplay"  >
+<audio  autoplay="autoplay" id="audio1" >
     <source src="./music/babyisbeautiful2.mp3" type="audio/mpeg">
     <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
 </audio>
 
-<audio autoplay="autoplay"  loop="loop"  controls="controls">
+<audio autoplay="autoplay" id="audio2"  loop="loop"  controls="controls">
     <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
 </audio>
 
@@ -188,11 +188,11 @@
             }
             ,myPlay:function () {
                 //添加背景音乐（解决苹果手机不能自动播放问题）
-                var audio = document.getElementById('Jaudio'),
-                    play = function(){
-                        audio.play();
-                        document.removeEventListener("touchstart",play, false);
-                    };
+                var audio = document.getElementById('audio1'),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play, false);
+                };
                 audio.play();
                 document.addEventListener("WeixinJSBridgeReady", function () {//微信
                     play();
