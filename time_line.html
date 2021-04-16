@@ -186,7 +186,7 @@
                     }
                 })
             }
-            ,myPlay:function () {
+            ,autoPlay:function () {
                 //添加背景音乐（解决苹果手机不能自动播放问题）
                 var audio = document.getElementById('audio1')
                 var audio2 = document.getElementById('audio2');
@@ -197,8 +197,9 @@
                     document.removeEventListener("touchstart",play, false);
                 };
 
-                audio.play();
+                audio.play();//audio.pause();
                 audio2.play();
+
                 document.addEventListener("WeixinJSBridgeReady", function () {//微信
                     play();
                 }, false);
@@ -212,7 +213,7 @@
                 this.initContent();
                 this.theWord();
                 this.initdate();
-                this.myPlay();
+                this.autoPlay();
 
             }
 
