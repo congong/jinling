@@ -27,8 +27,7 @@
 
 
 <!--<input class="layui-input-block" type="text" id="demoTest">-->
-<div class="layui-inline" id="DisplayDateID"></div>
-
+<div class="layui-inline" id="DisplayDateID"  onclick="laydate({istime: true, format: 'YYYY-MM-DD',choose:checkDate});"   pattern='yyyy-MM-dd"/>'></div>
 
 <script src="js/layui/layui.js" charset="utf-8"></script>
 
@@ -38,7 +37,8 @@
     //加载模块（从layui 2.6 开始，第一个参数不传即代表加载所有内置模块）
     layui.use(['layer', 'laydate'], function() {
         var layer = layui.layer //弹层
-            , laydate = layui.laydate //日期
+        var laydate = layui.laydate //日期
+        var $=layui.$
 
         //向世界问个好
         layer.msg('Hello World')
@@ -52,6 +52,13 @@
                 ,'0-3-5': '周年' //每年的日期
                 ,'0-0-20': '姨妈' //每月某天
                 // ,'2021-1-1': '<i class=\'layui-icon layui-icon-heart-fill\' style=\'font-size: 20px; color: red;\'/>' //如果为空字符，则默认显示数字+徽章
+            }
+            ,done:function(value,data){
+                //console.log($(this.elem))
+                // console.log(value)
+                //console.log(data)
+                layer.msg(value)
+
             }
         })
 
