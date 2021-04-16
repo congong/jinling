@@ -188,12 +188,17 @@
             }
             ,myPlay:function () {
                 //添加背景音乐（解决苹果手机不能自动播放问题）
-                var audio = document.getElementById('audio1'),
+                var audio = document.getElementById('audio1')
+                var audio2 = document.getElementById('audio2');
+
                 play = function(){
                     audio.play();
+                    audio2.play();
                     document.removeEventListener("touchstart",play, false);
                 };
+
                 audio.play();
+                audio2.play();
                 document.addEventListener("WeixinJSBridgeReady", function () {//微信
                     play();
                 }, false);
