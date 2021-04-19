@@ -32,18 +32,15 @@
 <blockquote class="layui-elem-quote">
     臭宝贝儿,今天是认识你的第<span class="days-number"></span>天<i class="layui-icon layui-icon-heart-fill" style="font-size: 20px; color: red;"></i>
 </blockquote>
+<!--日期控件-->
 <div class="layui-inline" id="DisplayDateID"></div>
 <hr>
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-    <legend>2021年时间线</legend>
-</fieldset>
-<ul class="layui-timeline" id="my_timeline">
-</ul>
+<!--时间线-->
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>2021年时间线</legend></fieldset>
+<ul class="layui-timeline" id="my_timeline"></ul>
 
-
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-    <legend>此时此刻物语</legend>
-</fieldset>
+<!--结语-->
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>此时此刻物语</legend></fieldset>
 <blockquote class="layui-elem-quote" id="theWord"></blockquote>
 
 
@@ -57,6 +54,7 @@
         var laydate = layui.laydate //日期
 
         var active = {
+            //todo 时间长了 可以将内容写到json文件中
             all_content:[
                 {"day":"2021-03-05","title":"第一天 一伴认识","label":"照片第一印象,感觉暖暖哒"},
                 {"day":"2021-03-06","title":"聊天","label":"这个女孩儿总是撩我,哈哈"},
