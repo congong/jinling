@@ -53,6 +53,11 @@
         var layer = layui.layer;
         var laydate = layui.laydate //日期
 
+        //小爱心
+        var MyLoveHeart="<i class='layui-icon layui-icon-heart-fill' style='font-size: 20px; color: red;'/>";
+        //换行
+        var EnterLine="<BR/>";
+
         var active = {
             //todo 时间长了 可以将内容写到json文件中
             all_content:[
@@ -61,7 +66,7 @@
                 {"day":"2021-03-07","title":"加微信","label":"男人要矜持，让妹子来加我"},
                 {"day":"2021-03-08","title":"第一次电话","label":"清晨叫我起床上班"},
                 {"day":"2021-03-09","title":"第一次见面","label":"周二，请假来找我，牛奶山楂球，青年湖四圈，麦当劳，卡片;见面第一印象淑女,嘿嘿,我想抱抱亲亲🤪🤪🤪哈哈!"},
-                {"day":"2021-03-12","title":"马路边边","label":" 马路边边，饭后遛弯->第一次牵手(手好嫩好滑🤪好好牵 哈哈)和拥抱; 对我爱心 <i class='layui-icon layui-icon-heart-fill' style='font-size: 20px; color: red;'/> biubiubiu 疯狂撩我!"},
+                {"day":"2021-03-12","title":"马路边边","label":" 马路边边，饭后遛弯->第一次牵手(手好嫩好滑🤪好好牵 哈哈)和拥抱; 对我爱心 "+MyLoveHeart+" biubiubiu 疯狂撩我!"},
                 {"day":"2021-03-13","title":"自习室","label":" 斯是陋室，惟吾德馨自习室"},
                 {"day":"2021-03-14","title":"通州图书馆","label":" 庆丰包子铺，冷了，没给我衣服穿哈哈;第一次冲咖啡，雀跃的像个小姑娘，在座椅上扭动，幅度之大，以至于旁人投来了好奇的眼光而不知"},
                 {"day":"2021-03-16","title":"来找我","label":" 炒面片，青年湖长椅,第一次亲亲!蜻蜓点水!"},
@@ -93,6 +98,7 @@
                 {"day":"2021-04-19","title":"周一上班","label":"当老师 上课，唉。。。极其不情愿，那就别上了 ok  哈哈 开心了，要罢工了，又不开心了，还是上吧"},
                 {"day":"2021-04-20","title":"周二上班","label":"今天臭宝到家好早呢,在超市买了鱼,晚上给我做的清蒸鱼; 吹风机在室友的屋里,没有吹头发,哼!第二天邋遢遢的上班"},
                 {"day":"2021-04-21","title":"她来了","label":"理发;晚上姨妈来了"},
+                {"day":"2021-04-22","title":"江米条","label":"今天让臭宝贝儿情绪波动了,我是个大坏蛋!"+EnterLine+" 以前的江米条是家和妈妈的味道，现在的江米条是臭宝贝儿的味道，咦~好臭好臭~~~哈哈哈"+MyLoveHeart},
 
             ]
             ,initContent:function () {
