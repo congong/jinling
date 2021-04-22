@@ -8,63 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="js/layui/css/layui.css"  media="all">
-    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+
 
 </head>
-
-<style>
-    body{
-        margin: 20px;
-    }
-</style>
 
 <body>
 
 
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-    <legend>2021年时间线</legend>
-</fieldset>
+<!--<script src="./love/display_love/js/jquery.js"></script>-->
+<!--<script src="./js/mouse-click.js"></script>-->
 
 
-<!--<input class="layui-input-block" type="text" id="demoTest">-->
-<div class="layui-inline" id="DisplayDateID"  onclick="laydate({istime: true, format: 'YYYY-MM-DD',choose:checkDate});"   pattern='yyyy-MM-dd"/>'></div>
+<script> !function(e, t, a) { function r() { for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999"); requestAnimationFrame(r) } function n() { var t = "function" == typeof e.onclick && e.onclick; e.onclick = function(e) { t && t(), o(e) } } function o(e) { var a = t.createElement("div"); a.className = "heart", s.push({ el: a, x: e.clientX - 5, y: e.clientY - 5, scale: 1, alpha: 1, color: c() }), t.body.appendChild(a) } function i(e) { var a = t.createElement("style"); a.type = "text/css"; try { a.appendChild(t.createTextNode(e)) } catch(t) { a.styleSheet.cssText = e } t.getElementsByTagName("head")[0].appendChild(a) } function c() { return "rgb(" + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + ")" } var s = []; e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function(e) { setTimeout(e, 1e3 / 60) }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r() } (window, document);</script>
 
-<script src="js/layui/layui.js" charset="utf-8"></script>
-
-<script>
-
-
-    //加载模块（从layui 2.6 开始，第一个参数不传即代表加载所有内置模块）
-    layui.use(['layer', 'laydate'], function() {
-        var layer = layui.layer //弹层
-        var laydate = layui.laydate //日期
-        var $=layui.$
-
-        //向世界问个好
-        layer.msg('Hello World')
-
-        laydate.render({
-            elem: '#DisplayDateID' //指定元素
-            ,theme: 'grid'
-            ,position: 'static'
-            ,mark: {
-                '0-1-14': '生日' //每年的日期
-                ,'0-3-5': '周年' //每年的日期
-                ,'0-0-20': '姨妈' //每月某天
-                // ,'2021-1-1': '<i class=\'layui-icon layui-icon-heart-fill\' style=\'font-size: 20px; color: red;\'/>' //如果为空字符，则默认显示数字+徽章
-            }
-            ,done:function(value,data){
-                //console.log($(this.elem))
-                // console.log(value)
-                //console.log(data)
-                layer.msg(value)
-
-            }
-        })
-
-    })
-
-</script>
 
 
 
