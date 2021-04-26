@@ -26,7 +26,7 @@ onload = function() {
         // $elem.innerText =single_emoji
 
         // $elem.style.color = "red";
-        $elem.style.color = "pink";
+        $elem.style.color = "#ffb6c1";
         // $elem.style.color = mycolor();
         $elem.style.zIndex = 9999;
         $elem.style.position = "absolute";
