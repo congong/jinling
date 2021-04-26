@@ -3,6 +3,7 @@
 // @namespace    https://djzhao.js.org
 // @version      0.3.2
 // @description  一个用JS写的鼠标左击特效
+// 单击小爱心
 // @description  一些Emoji 😀😃😄😁😆😅😂🤣☺😊😚😙😗😘😍😌😉🙃🙂😇😋😜😝😛🤑🤗🤓😎🤡🤠😖😣☹🙁😕😟😔😞😒😏😫😩😤😠😡😶😐😑😯😦😥😢😨😱😳😵😲😮😧🤤😭😪😴🙄🤔😬🤥🤐💩👺👹👿😈🤕🤒😷🤧🤢👻💀☠👽👾🤖🎃😺😸😹🙏👏🙌👐😾😿🙀😽😼😻
 // @author       一碗单炒饭
 // @include      /[a-zA-z]+://[^\s]*/
