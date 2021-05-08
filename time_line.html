@@ -41,7 +41,7 @@
 <div class="layui-inline" id="DisplayDateID"></div>
 <hr>
 <!--时间线-->
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>2021年时间线</legend></fieldset>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend><h2>2021年时间线</h2></legend></fieldset>
 <ul class="layui-timeline" id="my_timeline"></ul>
 
 <!--结语-->
@@ -131,7 +131,7 @@
 
             ]
             ,initContent:function () {
-                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3><p> {title}</p></h3><p>{label}</p> </div></li>'
+                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  {title} </h3> {label}  </div></li>'
 
                 var arr=[]
                 for (var i = 0; i < this.all_content.length; i++) {
@@ -140,7 +140,7 @@
                     var temp=template_li.replace("{id}",item.day).replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
                     arr.push(temp)
                 }
-                arr.push('<li class="layui-timeline-item" > <a name="future"></a> <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">未来</h3><p>......</p></div></li>')
+                arr.push('<li class="layui-timeline-item" > <a name="future"></a> <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">未来</h2><p>......</p></div></li>')
                 $("#my_timeline").html(arr)
             }
             ,dispDiffDays:function () {
