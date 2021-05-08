@@ -70,6 +70,7 @@
         var active = {
             //todo 时间长了 可以将内容写到json文件中
             all_content:[
+                {"day":"2021年3月","title":"","label":""},
                 {"day":"2021-03-05","title":"第一天 一伴认识","label":"照片第一印象,感觉暖暖哒"},
                 {"day":"2021-03-06","title":"聊天","label":"这个女孩儿总是撩我,哈哈"},
                 {"day":"2021-03-07","title":"加微信","label":"男人要矜持，让妹子来加我"},
@@ -90,6 +91,7 @@
                 {"day":"2021-03-28","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
                 {"day":"2021-03-29","title":"陪伴","label":"回来之后,互相陪伴3天"},
                 {"day":"2021-03-30","title":"草莓小米粥?","label":"我做饭搞砸了,熬粥,糊了;尬!尬!尬!尬!尬!"},
+                {"day":"2021年4月","title":"","label":""},
                 {"day":"2021-04-02","title":"补个30年生日","label":"白玫瑰蛋糕，香水，大宝宝辛辛苦苦背一包水果，买衣服"},
                 {"day":"2021-04-03","title":"通州图书馆","label":"陪伴推拿检查，留大宝宝独守空房，给臭宝洗臭袜子"},
                 {"day":"2021-04-04","title":"通州图书馆","label":"给臭宝做早饭（煎饺💯），买袜子，买杯子，买零食，衣食住行买买买，离别"},
@@ -116,6 +118,7 @@
                 {"day":"2021-04-28","title":"凶我","label":"拿上大巴扎吧，不用了,,,拿上🧐"},
                 {"day":"2021-04-29","title":"红烧排骨","label":"🤪大宝宝翘掉健步走～回家给臭宝烧排骨 ～天花板排骨/不能用分数评价的排骨/硬要打分那就10.01分的排骨～直接秒杀我的6.01～唉～惭愧惭愧"},
                 {"day":"2021-04-30","title":"不知所措","label":"我让大宝宝睡不好～不开心情绪低落了～都是我不好～反思ing～改改改～"},
+                {"day":"2021年5月","title":"","label":""},
                 {"day":"2021-05-01","title":"操心的臭宝","label":"我去衡水参加同学婚礼，臭宝贝儿的操心展现的淋漓尽致？！臭宝去了通图"},
                 {"day":"2021-05-02","title":"想我的臭宝","label":"想我的臭宝啊，嗷呜！！！臭宝去了通图，奥利给"},
                 {"day":"2021-05-03","title":"我和臭宝见面却不能恩爱的一天","label":"带着大瑞和小月月逛绿心公园；和姐姐吃饭；说要给我一个无敌承诺，我想好了，是跳舞，哈哈哈哈哈哈哈"},
@@ -128,11 +131,12 @@
 
             ]
             ,initContent:function () {
-                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">{day}</h3><p> {title}</p><p>标签：{label}</p> </div></li>'
+                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">{day}</h3><p> {title}</p><p>{label}</p> </div></li>'
 
                 var arr=[]
                 for (var i = 0; i < this.all_content.length; i++) {
                     var item=this.all_content[i]
+                    //标签：
                     var temp=template_li.replace("{id}",item.day).replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
                     arr.push(temp)
                 }
