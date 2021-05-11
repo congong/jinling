@@ -6,9 +6,14 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="js/layui/css/layui.css"  media="all">
-    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
 
+    <link rel="stylesheet" href="js/layui/css/layui.css"  media="all">
+    <!--    小爱心特效-->
+    <!--    <script src="./js/JSClickBubble.user.js"></script>-->
 </head>
 
 <style>
@@ -16,30 +21,52 @@
         margin: 20px;
     }
 
+    .layui-icon{ font-size:20px;font-weight: bold;}
+    .layui-timeline-axis{color:#009688!important;}
+
+
+
 </style>
 
 <body >
-<!--文字转音频网站  https://www.toolfk.com/tool-online-text2video -->
-<audio  autoplay="autoplay" id="audio1"  loop="loop" >
-    <source src="./music/babyisbeautiful2.mp3" type="audio/mpeg">
-    <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
-</audio>
+
+<div>
+    <a href="#rose">
+        <canvas id="c"></canvas>
+    </a>
+</div>
 
 
+<div >
+    <a  name="rose"></a>
 
-<blockquote class="layui-elem-quote">
-    臭宝贝儿,今天是认识你的第<span class="days-number"></span>天<i class="layui-icon layui-icon-heart-fill" style="font-size: 20px; color: red;"></i>
-</blockquote>
-<!--日期控件-->
-<div class="layui-inline" id="DisplayDateID"></div>
-<hr>
-<!--时间线-->
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>2021年时间线</legend></fieldset>
-<ul class="layui-timeline" id="my_timeline"></ul>
+    <!--文字转音频网站  https://www.toolfk.com/tool-online-text2video -->
+    <audio  autoplay="autoplay" id="audio1" >
+        <source src="./music/babyisbeautiful2.mp3" type="audio/mpeg">
+        <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
+    </audio>
 
-<!--结语-->
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>此时此刻物语</legend></fieldset>
-<blockquote class="layui-elem-quote" id="theWord"></blockquote>
+    <audio autoplay="autoplay" id="audio2"  loop="loop"  controls="controls">
+        <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
+    </audio>
+
+    <blockquote class="layui-elem-quote">
+        臭宝贝儿,今天是认识你的第<span class="days-number"></span>天<i class="layui-icon layui-icon-heart-fill" style="font-size: 20px; color: red;"></i>
+    </blockquote>
+    <!--日期控件-->
+    <div class="layui-inline" id="DisplayDateID"></div>
+    <hr>
+    <!--时间线-->
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend><h2>2021年时间线</h2></legend></fieldset>
+    <ul class="layui-timeline" id="my_timeline"></ul>
+
+    <!--结语-->
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>此时此刻物语</legend></fieldset>
+    <blockquote class="layui-elem-quote" id="theWord"></blockquote>
+
+</div>
+
+
 
 
 <script src="js/layui/layui.js" charset="utf-8"></script>
@@ -51,15 +78,25 @@
         var layer = layui.layer;
         var laydate = layui.laydate //日期
 
+        var loaddiv=layer.load();
+
+        //小爱心
+        var MyLoveHeart="<i class='layui-icon layui-icon-heart-fill' style='font-size: 20px; color: red;'/>";
+        //换行
+        var EnterLine="<BR/>";
+        //音乐  用法  MyMusic.replace('{val}','./music/chuangyi.mp3')
+        var MyMusic="<audio   src='{val}' controls='controls'/>"
+
         var active = {
             //todo 时间长了 可以将内容写到json文件中
             all_content:[
+                {"day":"2021年3月","title":"","label":""},
                 {"day":"2021-03-05","title":"第一天 一伴认识","label":"照片第一印象,感觉暖暖哒"},
                 {"day":"2021-03-06","title":"聊天","label":"这个女孩儿总是撩我,哈哈"},
                 {"day":"2021-03-07","title":"加微信","label":"男人要矜持，让妹子来加我"},
                 {"day":"2021-03-08","title":"第一次电话","label":"清晨叫我起床上班"},
-                {"day":"2021-03-09","title":"第一次见面","label":"周二，请假来找我，牛奶山楂球，青年湖四圈，麦当劳，卡片;见面第一印象淑女,嘿嘿,我想抱抱亲亲🤪🤪🤪哈哈!"},
-                {"day":"2021-03-12","title":"马路边边","label":" 马路边边，饭后遛弯->第一次牵手(手好嫩好滑🤪好好牵 哈哈)和拥抱; 对我爱心 <i class='layui-icon layui-icon-heart-fill' style='font-size: 20px; color: red;'/> biubiubiu 疯狂撩我!"},
+                {"day":"2021-03-09","title":"第一次见面","label":"周二，请假来找我，牛奶山楂球，青年湖四圈，麦当劳，卡片;见面第一印象淑女,嘿嘿,我想抱抱亲亲🤪🤪🤪哈哈，可是地铁口不给我抱抱"},
+                {"day":"2021-03-12","title":"马路边边","label":" 马路边边，饭后遛弯->第一次牵手(手好嫩好滑🤪好好牵 哈哈)和拥抱; 对我爱心 "+MyLoveHeart+" biubiubiu 疯狂撩我!"},
                 {"day":"2021-03-13","title":"自习室","label":" 斯是陋室，惟吾德馨自习室"},
                 {"day":"2021-03-14","title":"通州图书馆","label":" 庆丰包子铺，冷了，没给我衣服穿哈哈;第一次冲咖啡，雀跃的像个小姑娘，在座椅上扭动，幅度之大，以至于旁人投来了好奇的眼光而不知"},
                 {"day":"2021-03-16","title":"来找我","label":" 炒面片，青年湖长椅,第一次亲亲!蜻蜓点水!"},
@@ -74,6 +111,7 @@
                 {"day":"2021-03-28","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
                 {"day":"2021-03-29","title":"陪伴","label":"回来之后,互相陪伴3天"},
                 {"day":"2021-03-30","title":"草莓小米粥?","label":"我做饭搞砸了,熬粥,糊了;尬!尬!尬!尬!尬!"},
+                {"day":"2021年4月","title":"","label":""},
                 {"day":"2021-04-02","title":"补个30年生日","label":"白玫瑰蛋糕，香水，大宝宝辛辛苦苦背一包水果，买衣服"},
                 {"day":"2021-04-03","title":"通州图书馆","label":"陪伴推拿检查，留大宝宝独守空房，给臭宝洗臭袜子"},
                 {"day":"2021-04-04","title":"通州图书馆","label":"给臭宝做早饭（煎饺💯），买袜子，买杯子，买零食，衣食住行买买买，离别"},
@@ -89,18 +127,40 @@
                 {"day":"2021-04-17","title":"被包养","label":"推拿，炎症好了，超市逛逛逛，无沙花甲，烂草莓果冻"},
                 {"day":"2021-04-18","title":"宅宅宅","label":"在家第一次外卖，一起买鲜花（圣心百合、小雏菊没花钱、马蹄莲没买、白玫瑰），跟王善文吃饭"},
                 {"day":"2021-04-19","title":"周一上班","label":"当老师 上课，唉。。。极其不情愿，那就别上了 ok  哈哈 开心了，要罢工了，又不开心了，还是上吧"},
+                {"day":"2021-04-20","title":"周二上班","label":"今天臭宝到家好早呢,在超市买了鱼,晚上给我做的清蒸鱼; 吹风机在室友的屋里,没有吹头发,哼!第二天邋遢遢的上班"},
+                {"day":"2021-04-21","title":"她来了","label":"理发;晚上姨妈来了"},
+                {"day":"2021-04-22","title":"江米条","label":"今天让臭宝贝儿情绪波动了,我是个大坏蛋!"+EnterLine+" 以前的江米条是家和妈妈的味道，现在的江米条是臭宝贝儿的味道，咦~好臭好臭~~~哈哈哈"+MyLoveHeart},
+                {"day":"2021-04-23","title":"搞笑了","label":"误把干净'衣服'给洗了；"+EnterLine+"6.01分的排骨，哈哈"},
+                {"day":"2021-04-24","title":"充电","label":"图书馆，小鲍，小贝，湖南常德米粉"},
+                {"day":"2021-04-25","title":"大坏蛋","label":"今天没有上班,臭宝懒懒的 哈哈，在家给我做好吃的；总是扣我工资，大坏蛋"},
+                {"day":"2021-04-26","title":"周一起床气","label":"赖床的大宝差点儿迟到，天花板疙瘩汤害我又长肉，坏人哼"},
+                {"day":"2021-04-27","title":"虚张声势","label":"MuMA 想找个地洞🕳️钻下去 "},
+                {"day":"2021-04-28","title":"凶我","label":"拿上大巴扎吧，不用了,,,拿上🧐"},
+                {"day":"2021-04-29","title":"红烧排骨","label":"🤪大宝宝翘掉健步走～回家给臭宝烧排骨 ～天花板排骨/不能用分数评价的排骨/硬要打分那就10.01分的排骨～直接秒杀我的6.01～唉～惭愧惭愧"},
+                {"day":"2021-04-30","title":"不知所措","label":"我让大宝宝睡不好～不开心情绪低落了～都是我不好～反思ing～改改改～"},
+                {"day":"2021年5月","title":"","label":""},
+                {"day":"2021-05-01","title":"操心的臭宝","label":"我去衡水参加同学婚礼，臭宝贝儿的操心展现的淋漓尽致？！臭宝去了通图"},
+                {"day":"2021-05-02","title":"想我的臭宝","label":"想我的臭宝啊，嗷呜！！！臭宝去了通图，奥利给"},
+                {"day":"2021-05-03","title":"我和臭宝见面却不能恩爱的一天","label":"带着大瑞和小月月逛绿心公园；和姐姐吃饭；说要给我一个无敌承诺，我想好了，是跳舞，哈哈哈哈哈哈哈"},
+                {"day":"2021-05-04","title":"做好饭等君归","label":"在家做好饭等臭宝下班；花甲、黄瓜荷兰豆、蘑菇"},
+                {"day":"2021-05-05","title":"我爱你","label":"早餐【面包 鸡蛋 火腿 牛奶】...臭宝去上班,我独守空房；琥珀核桃首秀（晾一会儿）；晚上 罗斯福 C&A 买买买，买了一个没穿裤子的裤子"},
+                {"day":"2021-05-06","title":"你学了我的...","label": "憋说话，吻我" + MyLoveHeart+EnterLine + MyMusic.replace('{val}','./music/chuangyi.mp3')},
+                {"day":"2021-05-07","title":"想你","label":"想你想你想你想你……嘴上没说想你，心里也在想你，臭宝宝不要挑我哦"+MyLoveHeart},
+                {"day":"2021-05-10","title":"钥匙","label":"忘了带钥匙，嗯，一定是臭宝故意为之的"},
+
 
             ]
             ,initContent:function () {
-                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">{day}</h3><p> {title}</p><p>标签：{label}</p> </div></li>'
+                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis" ></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  {title} </h3> {label}  </div></li>'
 
                 var arr=[]
                 for (var i = 0; i < this.all_content.length; i++) {
                     var item=this.all_content[i]
+                    //标签：
                     var temp=template_li.replace("{id}",item.day).replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
                     arr.push(temp)
                 }
-                arr.push('<li class="layui-timeline-item" > <a name="future"></a> <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h3 class="layui-timeline-title">未来</h3><p>......</p></div></li>')
+                arr.push('<li class="layui-timeline-item" > <a name="future"></a> <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">未来</h2><p>......</p></div></li>')
                 $("#my_timeline").html(arr)
             }
             ,dispDiffDays:function () {
@@ -189,13 +249,16 @@
             ,autoPlay:function () {
                 //添加背景音乐（解决苹果手机不能自动播放问题）
                 var audio = document.getElementById('audio1')
+                var audio2 = document.getElementById('audio2');
 
                 play = function(){
                     audio.play();
+                    audio2.play();
                     document.removeEventListener("touchstart",play, false);
                 };
 
                 audio.play();//audio.pause();
+                audio2.play();
 
                 document.addEventListener("WeixinJSBridgeReady", function () {//微信
                     play();
@@ -211,15 +274,192 @@
                 this.theEndWord();
                 this.initdate();
                 this.autoPlay();
-
+                layer.msg("臭宝贝儿，你好美呀...")
+                layer.close(loaddiv)
             }
 
         }
 
         active.init();
-        layer.msg("臭宝贝儿，你好美呀...")
+
 
     });
+
+
+
+</script>
+
+<!--小爱心特效-->
+<script> !function(e, t, a) { function r() { for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999;"); requestAnimationFrame(r) } function n() { var t = "function" == typeof e.onclick && e.onclick; e.onclick = function(e) { t && t(), o(e) } } function o(e) { var a = t.createElement("div"); a.className = "heart", s.push({ el: a, x: e.clientX - 5, y: e.clientY - 5, scale: 1, alpha: 1, color: 'pink'}), t.body.appendChild(a) } function i(e) { var a = t.createElement("style"); a.type = "text/css"; try { a.appendChild(t.createTextNode(e)) } catch(t) { a.styleSheet.cssText = e } t.getElementsByTagName("head")[0].appendChild(a) } function c() { return "rgb(" + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + "," + ~~ (255 * Math.random()) + ")" } var s = []; e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function(e) { setTimeout(e, 1e3 / 60) }, i(".heart{ width: 15px;height: 15px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r() } (window, document);</script>
+
+<!--小爱心特效2-->
+<script>
+    onload = function() {
+        var click_cnt = 0;
+        var $html = document.getElementsByTagName("html")[0];
+        var $body = document.getElementsByTagName("body")[0];
+
+        //var emoji ="❤😀😃😄😁😆😅😂🤣☺😊😚😙😗😘😍😌😉🙃🙂😇😋😜😝😛🤑🤗🤓😎🤡🤠😖😣☹🙁😕😟😔😞😒😏😫😩😤😠😡😶😐😑😯😦😥😢😨😱😳😵😲😮😧🤤😭😪😴🙄🤔😬🤥🤐💩👺👹👿😈🤕🤒😷🤧🤢👻💀☠👽👾🤖🎃😺😸😹🙏👏🙌👐😾😿🙀😽😼😻"
+        var emojis=[
+            "❤",
+            "😀",
+            "😃",
+            "😄",
+            "😁",
+            "😆",
+            "😅",
+            "😂",
+            "🤣",
+            "☺",
+            "😊",
+            "😚",
+            "😙",
+            "😗",
+            "😘",
+            "😍",
+            "😌",
+            "😉",
+            "🙃",
+            "🙂",
+            "😇",
+            "😋",
+            "😜",
+            "😝",
+            "😛",
+            "🤑",
+            "🤗",
+            "🤓",
+            "😎",
+            "🤡",
+            "🤠",
+            "😖",
+            "😣",
+            "🙁",
+            "😕",
+            "😟",
+            "😔",
+            "😞",
+            "😒",
+            "😏",
+            "😫",
+            "😩",
+            "😤",
+            "😠",
+            "😡",
+            "😶",
+            "😐",
+            "😑",
+            "😯",
+            "😦",
+            "😥",
+            "😢",
+            "😨",
+            "😱",
+            "😳",
+            "😵",
+            "😲",
+            "😮",
+            "😧",
+            "🤤",
+            "😭",
+            "😪",
+            "😴",
+            "🙄",
+            "🤔",
+            "😬",
+            "🤥",
+            "🤐",
+            "💩",
+            "👺",
+            "👹",
+            "👿",
+            "😈",
+            "🤕",
+            "🤒",
+            "😷",
+            "🤧",
+            "🤢",
+            "👻",
+            "💀",
+            "☠",
+            "👽",
+            "👾",
+            "🤖",
+            "🎃",
+            "😺",
+            "😸",
+            "😹",
+            "🙏",
+            "👏",
+            "🙌",
+            "👐",
+            "😾",
+            "😿",
+            "🙀",
+            "😽",
+            "😼",
+            "😻"
+        ]
+
+
+        $html.onclick = function(e) {
+            var $elem = document.createElement("b");
+
+            var single_emoji=emojis[click_cnt]
+            ++click_cnt
+            console.log(single_emoji)
+            if(click_cnt>=emojis.length) click_cnt=0
+
+            // $elem.innerText ="❤"
+            $elem.innerText =single_emoji
+
+            // $elem.style.color = "red";
+            // $elem.style.color = "#ffb6c1";
+            $elem.style.color = mycolor();
+            $elem.style.zIndex = 9999;
+            $elem.style.position = "absolute";
+            $elem.style.select = "none";
+            var x = e.pageX;
+            var y = e.pageY;
+            $elem.style.left = (x - 10) + "px";
+            $elem.style.top = (y - 20) + "px";
+            clearInterval(anim);
+
+
+            //字体随机大小
+            $elem.style.fontSize = Math.random() * 100 + 8 + "px";
+            var increase = 0;
+            var anim;
+            setTimeout(function() {
+                anim = setInterval(function() {
+                    if (++increase == 150) {
+                        clearInterval(anim);
+                        $body.removeChild($elem);
+                    }
+                    $elem.style.top = y - 20 - increase + "px";
+                    $elem.style.opacity = (150 - increase) / 120;
+                }, 8);
+            }, 70);
+            $body.appendChild($elem);
+        };
+
+        //随机颜色
+        function mycolor() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+    };
+</script>
+
+
+<!--玫瑰-->
+<script>
+    var b = document.body;
+    var c = document.getElementsByTagName('canvas')[0];
+    var a = c.getContext('2d');
+    document.body.clientWidth;
+    with(m=Math)C=cos,S=sin,P=pow,R=random;c.width=c.height=f=600;h=-250;function p(a,b,c){if(c>60)return[S(a*7)*(13+5/(.2+P(b*4,4)))-S(b)*50,b*f+50,625+C(a*7)*(13+5/(.2+P(b*4,4)))+b*400,a*1-b/2,a];A=a*2-1;B=b*2-1;if(A*A+B*B<1){if(c>37){n=(j=c&1)?6:4;o=.5/(a+.01)+C(b*125)*3-a*300;w=b*h;return[o*C(n)+w*S(n)+j*610-390,o*S(n)-w*C(n)+550-j*350,1180+C(B+A)*99-j*300,.4-a*.1+P(1-B*B,-h*6)*.15-a*b*.4+C(a+b)/5+P(C((o*(a+1)+(B>0?w:-w))/25),30)*.1*(1-B*B),o/1e3+.7-o*w*3e-6]}if(c>32){c=c*1.16-.15;o=a*45-20;w=b*b*h;z=o*S(c)+w*C(c)+620;return[o*C(c)-w*S(c),28+C(B*.5)*99-b*b*b*60-z/2-h,z,(b*b*.3+P((1-(A*A)),7)*.15+.3)*b,b*.7]}o=A*(2-b)*(80-c*2);w=99-C(A)*120-C(b)*(-h-c*4.9)+C(P(1-b,7))*50+c*2;z=o*S(c)+w*C(c)+700;return[o*C(c)-w*S(c),B*99-C(P(b, 7))*50-c/3-z/1.35+450,z,(1-b/1.2)*.9+a*.1, P((1-b),20)/4+.05]}}setInterval('for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}',0)
+
 
 </script>
 
