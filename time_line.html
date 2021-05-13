@@ -19,16 +19,24 @@
 <style>
     body{
         margin: 20px;
+
     }
 
     .layui-icon{ font-size:20px;font-weight: bold;}
     .layui-timeline-axis{color:#009688!important;}
 
-
+    .clsPageTop{
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        /*margin-right: 10px;*/
+        /*margin-bottom: 10px;*/
+    }
 
 </style>
 
 <body >
+<a href="" name="pageTop"></a>
 <!--文字转音频网站  https://www.toolfk.com/tool-online-text2video -->
 <audio  autoplay="autoplay" id="audio1" >
     <source src="./music/babyisbeautiful2.mp3" type="audio/mpeg">
@@ -52,6 +60,11 @@
 <!--结语-->
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>此时此刻物语</legend></fieldset>
 <blockquote class="layui-elem-quote" id="theWord"></blockquote>
+
+<!--回到顶部-->
+<div class="clsPageTop">
+    <a href="#pageTop"> <i class="layui-icon layui-icon-top" style="font-size: 80px"></i> </a>
+</div>
 
 <!--文本-->
 <script type="text/html" id="myTimeLineItem">
