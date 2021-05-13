@@ -35,6 +35,12 @@
         /*margin-bottom: 10px;*/
     }
 
+
+    .green{
+        color:#009688 !important;
+    }
+
+
 </style>
 
 <body >
@@ -65,10 +71,10 @@
 <blockquote class="layui-elem-quote" id="theWord"></blockquote>
 
 <!--回到顶部-->
-<div class="clsPageTop">
-    <a href="#pageBottom"> <i class="layui-icon layui-icon-download-circle" style="font-size: 45px;color:#cccccc"></i> </a>
-    <a href="#pageTop"> <i class="layui-icon layui-icon-upload-circle" style="font-size: 40px;color:#cccccc"></i> </a>
-<!--    <a href="#pageTop"> <i class="layui-icon layui-icon-top" style="font-size: 80px;color:#cccccc"></i> </a>-->
+<div class="clsPageTop ">
+    <a href="#pageTop"> <i class="layui-icon layui-icon-upload-circle green" style="font-size: 40px;"></i> </a>
+    <a href="#pageBottom"> <i class="layui-icon layui-icon-download-circle green" style="font-size: 45px;"></i> </a>
+    <!--    <a href="#pageTop"> <i class="layui-icon layui-icon-top" style="font-size: 80px;color:#cccccc"></i> </a>-->
 </div>
 
 <!--item文本-->
@@ -78,8 +84,8 @@
     <li class="layui-timeline-item" isParent="{isParent}"> <a name="{id}"></a>
         <i class="layui-icon layui-timeline-axis"></i>
         <div class="layui-timeline-content layui-text" style="{style_title}"><h2 class="layui-timeline-title" style="color:#009688"><b>{day}</b></h2>
-            <h3> <b style="color: #2F3F3F;">{title}</b> </h3>
-            <h4> <span style="color: #cccccc;">{label}</span> </h4>
+            <h3> <b style="color: rgba(108,107,100,0.54);">{title}</b> </h3>
+            <h4> <span style="color: #9c9c9c;">{label}</span> </h4>
         </div>
     </li>
 
@@ -174,6 +180,7 @@
                 {"isParent":"is0","day":"2021-05-11","title":"臭宝贝儿","label":"想让臭宝跳一个乘风破浪的姐姐"},
                 {"isParent":"is0","day":"2021-05-12","title":"马路边边","label":"臭宝想吃马路边边，明明是馋嘴了，破戒了，还美名曰‘奖励’"},
                 {"isParent":"is0","day":"2021-05-13","title":"傻宝宝","label":  MyMusic.replace('{val}','./music/imissyou.mp3')},
+                {"isParent":"is0","day":"2021-05-14","title":"功能更新","label":"添加了月份分组；回到顶部/底部"},
 
 
             ]
