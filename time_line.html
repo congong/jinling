@@ -27,7 +27,8 @@
 
     .clsPageTop{
         position: fixed;
-        right: 48%;
+        /*right: 30%;*/
+        right:40px;
         bottom: 10px;
         z-index: 9999999;
         /*margin-right: 10px;*/
@@ -74,7 +75,7 @@
 <!--    style="padding-top:10px;padding-bottom:5px;background:#afd0c1" -->
 <script type="text/html" id="myTimeLineItem">
 
-    <li class="layui-timeline-item"><a name="{id}"></a>
+    <li class="layui-timeline-item"> <a name="{id}"></a>
         <i class="layui-icon layui-timeline-axis"></i>
         <div class="layui-timeline-content layui-text" style="{style_title}"><h2 class="layui-timeline-title" style="color:#009688"><b>{day}</b></h2>
             <h3> <b style="color: #2F3F3F;">{title}</b> </h3>
@@ -87,9 +88,9 @@
 <script src="js/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
 <script>
-
+    var $
     layui.use(["jquery", 'layer','laydate'], function () {
-        var $ = layui.jquery;
+          $ = layui.jquery;
         var layer = layui.layer;
         var laydate = layui.laydate //日期
 
@@ -183,9 +184,11 @@
                     //标签：
                     var temp=template_li.replace("{id}",item.day).replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
 
-                    //是标题 也是分组 todo 添加的单击事件  进行分组  收缩、展开
+                    //是标题 也是分组 todo 添加的单击事件  进行分组  收缩、展开
                     if(item.title==''){
                         temp=temp.replace("{style_title}",style_title)
+                            .replace("layui-icon layui-timeline-axis","")
+                            .replace("","")//替换一个看不见的东西，勿动
                     }
 
                     arr.push(temp)
