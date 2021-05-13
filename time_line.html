@@ -131,13 +131,14 @@
                 {"day":"2021-05-05","title":"我爱你","label":"早餐【面包 鸡蛋 火腿 牛奶】...臭宝去上班,我独守空房；琥珀核桃首秀（晾一会儿）；晚上 罗斯福 C&A 买买买，买了一个没穿裤子的裤子"},
                 {"day":"2021-05-06","title":"你学了我的...","label": "憋说话，吻我" + MyLoveHeart+EnterLine + MyMusic.replace('{val}','./music/chuangyi.mp3')},
                 {"day":"2021-05-07","title":"想你","label":"想你想你想你想你……嘴上没说想你，心里也在想你，臭宝宝不要挑我哦"+MyLoveHeart},
-                {"day":"2021-05-09","title":"坏人","label":"好想拥有蓝胖子的口袋 "},
+                {"day":"2021-05-09","title":"坏人","label":"好想拥有蓝胖子的口袋 【知识拓展：应该叫做四次元口袋。又名四次元百宝袋、四维口袋,正式名称是“机械人专用四次元空间内藏秘密道具格纳口袋” 】"+"<sub style='color:red'>想你</sub>"},
                 {"day":"2021-05-10","title":"钥匙","label":"忘了带钥匙，嗯，一定是臭宝故意为之的"},
+                {"day":"2021-05-12","title":"马路边边","label":"臭宝想吃马路边边，明明是馋嘴了，破戒了，还美名曰‘奖励’"},
 
 
             ]
             ,initContent:function () {
-                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis" ></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  {title} </h3> {label}  </div></li>'
+                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis" ></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  <b>{title}</b> </h3> {label}  </div></li>'
 
                 var arr=[]
                 for (var i = 0; i < this.all_content.length; i++) {
