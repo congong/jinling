@@ -30,43 +30,34 @@
 
 <body >
 
-<div>
-    <a href="#rose">
-        <canvas id="c"></canvas>
-    </a>
-</div>
-
 
 <div >
-    <a  name="rose"></a>
 
-    <!--文字转音频网站  https://www.toolfk.com/tool-online-text2video -->
-    <audio  autoplay="autoplay" id="audio1" >
-        <source src="./music/babyisbeautiful2.mp3" type="audio/mpeg">
-        <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio autoplay="autoplay" id="audio2"  loop="loop"  controls="controls">
-        <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
-    </audio>
-
-    <blockquote class="layui-elem-quote">
-        臭宝贝儿,今天是认识你的第<span class="days-number"></span>天<i class="layui-icon layui-icon-heart-fill" style="font-size: 20px; color: red;"></i>
-    </blockquote>
     <!--日期控件-->
     <div class="layui-inline" id="DisplayDateID"></div>
     <hr>
-    <!--时间线-->
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend><h2>2021年时间线</h2></legend></fieldset>
-    <ul class="layui-timeline" id="my_timeline"></ul>
+    <ul class="layui-timeline" id="my_timeline">
 
-    <!--结语-->
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>此时此刻物语</legend></fieldset>
-    <blockquote class="layui-elem-quote" id="theWord"></blockquote>
+
+    </ul>
+
+
 
 </div>
 
 
+<script type="text/html" id="myTimeLineItem">
+
+    <li class="layui-timeline-item"><a name="{id}"></a>
+        <i class="layui-icon layui-timeline-axis"></i>
+        <div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2>
+                <h3> {title} </h3>
+                {label}
+        </div>
+    </li>
+
+</script>
 
 
 <script src="js/layui/layui.js" charset="utf-8"></script>
@@ -151,7 +142,8 @@
 
             ]
             ,initContent:function () {
-                var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis" ></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  {title} </h3> {label}  </div></li>'
+                // var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis" ></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  {title} </h3> {label}  </div></li>'
+                var template_li=$("#myTimeLineItem").html()
 
                 var arr=[]
                 for (var i = 0; i < this.all_content.length; i++) {
@@ -164,59 +156,7 @@
                 $("#my_timeline").html(arr)
             }
             ,dispDiffDays:function () {
-                var arr = "2021-03-05 00:00:00".split(/[- :]/);
-                var f = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
-                var b = parseInt(new Date() - f) / 1000;
-                var e = parseInt(b % 60);
-                if (e < 10) {
-                    e = "0" + e
-                }
-                b = parseInt(b / 60);
-                var d = b % 60;
-                if (d < 10) {
-                    d = "0" + d
-                }
-                b = parseInt(b / 60);
-                var c = b % 24;
-                if (c < 10) {
-                    c = "0" + c
-                }
-                b = parseInt(b / 24);
-                var a = b;
-                document.getElementsByClassName("days-number")[0].innerHTML = ("" + a);
                 // document.getElementsByClassName("seconds")[0].innerHTML = (c + " 时 " + d + " 分 " + e + " 秒")
-            }
-            ,theEndWord:function () {
-                var theWord=[
-                    "人有生老三千疾 唯有相思不可医",
-                    "后来，时间都与你有关",
-                    "想念一张脸。我也如此，闭上眼，脑海满满都是你的样子，挥之不去。",
-                    "如果没有如果，时间是否会为我们停留？曾经看过的夕阳，听过的潮落，都被时间掩埋，幻成泡沫。",
-                    "总有那么一个地方，一个人，让你心动，留恋不已。总有那么一个人，一句对不起，让你心痛，刻骨铭心。",
-                    "爱，或者被爱，都不如相爱。",
-                    "喜欢记忆中，你拥抱我的温度。喜欢记忆中，你体贴的话语。喜欢记忆中，你给我依靠的肩膀……",
-                    "只要你记得我，我不介意整个世界都把我遗忘了。",
-                    "悲伤的秋千总有微风陪伴，孤寂的夜，总有繁星点点，蓦然回首，而你却不在我身边。",
-                    "有一天，我们一起起床，一起刷牙，一起拉着手出家门。一起遛狗，一起散步，一起为了争电视斗智斗勇。一起买菜，一起做饭，一起为了几毛钱在菜市场咆哮。我知道，一定会有这么一天的。",
-                    "世界这么大，能遇见，不容易。",
-                    "如果爱情是需要不顾一切的去付出，那么很显然，对方并不会太在乎你的感受。因为一个在乎你的人，是不舍得你受到任何伤害的。",
-                    "我爱你，不光因为你的样子，还因为和你在一起时我的样子；我爱你，不光因为你为我而做的事，还因为为了你我能做成的事；我爱你，因为你能唤出我最真的那部分，我心里最美丽的地方被你的光芒照得通亮。",
-                    "所以说，当你为爱情而牺牲越多时，对方爱你就爱的越少。一味的去爱人，当然是很累的。而真正被爱的感觉，其实就是受宠。",
-                    "想你的时候，如果你不知道，我会感到孤单。想你的时候，你知道我在想你，我内心已经有了慰藉。想你的时候，如果你也在想我，我就会感觉甜蜜。",
-                    "我还记得第一次看到你的场景，那时的我并没想到现在你对我是那么重要。",
-                    "你闻到我的气息，我听到你的叫声。你知道我在流泪，我心疼你的焦急。我们如此贴近又如此遥远。",
-                    "睡不着就给我打电话吧，难过了喊我一起出去陪你疯吧，伤心了找我诉苦吧，害怕了没事我在呢，被抛弃嫌弃了想一想有个人一直在你身后陪着你呢。",
-                    "每晚睡前听你说晚安，是属于我的，最简单而持久的幸福。",
-                    "夕阳西下，是我最想念的时候，对着你在的那个城市，说了一声：我想你，不知道，你是否听得到。",
-                    "The time that you are my most fatal. 时光深知你是我最致命的爱人",
-                    "当一切都随风而逝的时候，那些特别的瞬间都成了永恒。",
-                    "子乔结婚以前，还有别的男人对你好，结婚以后，你就只剩下我了，可是婚后，我一定要对你更好，这样你才不会失落，不是吗？",
-                    "你还没来，我怎敢老去。",
-                    "你爱我，我会陪你；你不爱我，我给你自由。这就是傻傻的我，那个在乎你的我。",
-                ]
-                var randVal=Math.floor(Math.random()*theWord.length)
-                console.log(theWord[randVal])
-                $("#theWord").html(theWord[randVal])
             }
             ,initdate:function(){
                 // console.log(this.all_content)
@@ -246,34 +186,9 @@
                     }
                 })
             }
-            ,autoPlay:function () {
-                //添加背景音乐（解决苹果手机不能自动播放问题）
-                var audio = document.getElementById('audio1')
-                var audio2 = document.getElementById('audio2');
-
-                play = function(){
-                    audio.play();
-                    audio2.play();
-                    document.removeEventListener("touchstart",play, false);
-                };
-
-                audio.play();//audio.pause();
-                audio2.play();
-
-                document.addEventListener("WeixinJSBridgeReady", function () {//微信
-                    play();
-                }, false);
-                document.addEventListener('YixinJSBridgeReady', function() {//易信
-                    play();
-                }, false);
-                document.addEventListener("touchstart",play, false);
-            }
             ,init:function () {
-                this.dispDiffDays();
                 this.initContent();
-                this.theEndWord();
                 this.initdate();
-                this.autoPlay();
                 layer.msg("臭宝贝儿，你好美呀...")
                 layer.close(loaddiv)
             }
