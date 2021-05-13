@@ -27,7 +27,7 @@
 
     .clsPageTop{
         position: fixed;
-        right: 10px;
+        right: 48%;
         bottom: 10px;
         z-index: 9999999;
         /*margin-right: 10px;*/
@@ -58,16 +58,19 @@
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend><h2>2021年时间线</h2></legend></fieldset>
 <ul class="layui-timeline" id="my_timeline"></ul>
 
+<a href="" name="pageBottom"></a>
 <!--结语-->
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend>此时此刻物语</legend></fieldset>
 <blockquote class="layui-elem-quote" id="theWord"></blockquote>
 
 <!--回到顶部-->
 <div class="clsPageTop">
-    <a href="#pageTop"> <i class="layui-icon layui-icon-top" style="font-size: 80px;color:#cccccc"></i> </a>
+    <a href="#pageBottom"> <i class="layui-icon layui-icon-download-circle" style="font-size: 45px;color:#cccccc"></i> </a>
+    <a href="#pageTop"> <i class="layui-icon layui-icon-upload-circle" style="font-size: 40px;color:#cccccc"></i> </a>
+<!--    <a href="#pageTop"> <i class="layui-icon layui-icon-top" style="font-size: 80px;color:#cccccc"></i> </a>-->
 </div>
 
-<!--文本-->
+<!--item文本-->
 <script type="text/html" id="myTimeLineItem">
     <li class="layui-timeline-item"><a name="{id}"></a>
         <i class="layui-icon layui-timeline-axis"></i>
@@ -156,10 +159,13 @@
                 {"day":"2021-05-05","title":"我爱你","label":"早餐【面包 鸡蛋 火腿 牛奶】...臭宝去上班,我独守空房；琥珀核桃首秀（晾一会儿）；晚上 罗斯福 C&A 买买买，买了一个没穿裤子的裤子"},
                 {"day":"2021-05-06","title":"你学了我的...","label": "憋说话，吻我" + MyLoveHeart+EnterLine + MyMusic.replace('{val}','./music/chuangyi.mp3')},
                 {"day":"2021-05-07","title":"想你","label":"想你想你想你想你……嘴上没说想你，心里也在想你，臭宝宝不要挑我哦"+MyLoveHeart},
+                {"day":"2021-05-08","title":"傻宝宝","label":  MyMusic.replace('{val}','./music/babyisbeautiful2.mp3')},
                 {"day":"2021-05-09","title":"坏人","label":"好想拥有蓝胖子的口袋 【知识拓展：应该叫做四次元口袋。又名四次元百宝袋、四维口袋,正式名称是“机械人专用四次元空间内藏秘密道具格纳口袋” 】"+"<sub style='color:red'>想你</sub>"},
                 {"day":"2021-05-10","title":"钥匙","label":"忘了带钥匙，嗯，一定是臭宝故意为之的"},
                 {"day":"2021-05-11","title":"臭宝贝儿","label":"想让臭宝跳一个乘风破浪的姐姐"},
                 {"day":"2021-05-12","title":"马路边边","label":"臭宝想吃马路边边，明明是馋嘴了，破戒了，还美名曰‘奖励’"},
+                {"day":"2021-05-13","title":"傻宝宝","label":  MyMusic.replace('{val}','./music/imissyou.mp3')},
+
 
 
             ]

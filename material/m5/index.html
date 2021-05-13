@@ -1,236 +1,165 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html  >
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>jQuery��˾���¼�����ʱ���� - վ���ز�</title>
-<link href="css/history.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+
+
+    <title> 纵向时间轴 </title>
+    <link href="css/history.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../js/layui/css/layui.css"  media="all">
+
 </head>
 <body>
-<!-- ���� ��ʼ -->
+<!-- 代码 开始 -->
 <div class="head-warp">
-  <div class="head">
+    <div class="head">
         <div class="nav-box">
-          <ul>
-              <li class="cur" style="text-align:center; font-size:62px; font-family:'΢���ź�', '����';">��˾���¼�ʱ����</li>
-          </ul>
+            <ul>
+                <li class="cur" style="text-align:center; font-size:62px; font-family:'微软雅黑', '宋体';">时间轴</li>
+            </ul>
         </div>
-  </div>
-</div>
-<div class="main">
-  <div class="history">
-    <div class="history-date">
-      <ul>
-      	<h2 class="first"><a href="#nogo">2012��</a></h2>
-
- 
-         <li class="green">
-          <h3>10.08<span>2012</span></h3>
-          <dl>
-            <dt>����ȫ�µļ��������6.0�汾
-	<span>���������ں˵�21.0��ȫ��Ĭ�Ͻ��棻����С���ڲ��Ź���</span>
-	</dt>
-          </dl>
-        </li>
-
-       <li>
-         <h3>07.19<span>2012</span></h3>
-          <dl>
-            <dt>���������ں˵�20.0
-	<span>HTML5֧�ֶ�ȫ����ã��ﵽ469�֣�����ҳ�棺 </span>
-	</dt>
-          </dl>
-        </li>
-
-         <li>
-          <h3>07.02<span>2012</span></h3>
-          <dl>
-            <dt>���������ں˵�19.0
-	<span>֧����������ͷ���������ֱ�ӷ�������ͷ</span>
-	</dt>
-          </dl>
-        </li>
-
-       <li class="green">
-          <h3>06.27<span>2012</span></h3>
-          <dl>
-            <dt>���������׸�HTML5ʵ����
-	<span>�����ƹ�HTML5</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>06.15<span>2012</span></h3>
-          <dl>
-            <dt>�����������ļ�ǰɨ���������Ӱ�ȫ�ԵĹ���</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>06.05<span>2012</span></h3>
-          <dl>
-            <dt>W3C������ϯִ�йٷû�����վ����360��˾
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>05.12<span>2012</span></h3>
-          <dl>
-            <dt>360������ϯW3C���˳�Ա�������</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>05.11<span>2012</span></h3>
-          <dl>
-            <dt>���������ں˵�18.0
-	<span>�������û�ʹ��������Ĺ���</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>05.03<span>2012</span></h3>
-          <dl>
-            <dt>360����������û���ͻ��5000�򣬻�Ծ�û���2000��
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>03.08<span>2012</span></h3>
-          <dl>
-            <dt>���������ں˵�17.0������������ٶȡ���ǿ��ȫ��
-	<span>����HTTP���߻����������������ҳ�����ٶ�</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>01.29<span>2012</span></h3>
-          <dl>
-            <dt>�������ȼ���W3C����HTML�����飬����HTML5��׼�ƶ�</span>
-	</dt>
-          </dl>
-        </li>
-      </ul>
     </div>
-    <div class="history-date">
-      <ul>
-      	<h2 class="date02"><a href="#nogo">2011��</a></h2>
-        <li>
-          <h3>12.12<span>2011</span></h3>
-          <dl>
-            <dt>���������ں˵�16.0������������ٶȡ���ǿ��ȫ��
-	<span>������360��������֧�֣��������Ͻ��װ�ȫ</span>
-	</dt>
-          </dl>
-        </li>
-        <li class="green">
-          <h3>11.24<span>2011</span></h3>
-          <dl>
-            <dt>���������׸�˫�������ʵ����
-	<span>���ɲ������������</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>11.01<span>2011</span></h3>
-          <dl>
-            <dt>���������ں˵�15.0
-	<span>����������ٶȡ���ǿ��ȫ��</span>
-	</dt>
-          </dl>
-        </li>
-         <li>
-          <h3>10.27<span>2011</span></h3>
-          <dl>
-            <dt>��Ϊ����Ψһ������չ����������̣���չ2011�ȸ迪�����մ��
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>09.22<span>2011</span></h3>
-          <dl>
-            <dt>���������ں˵�14.0
-	<span>����Canvas 2D��GPU���ٵ�����</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>09.21<span>2011</span></h3>
-          <dl>
-            <dt>360����������û�����ǧ��������Chromium�����汾ͬ��
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>08.30<span>2011</span></h3>
-          <dl>
-            <dt>���������ں˵�13.0
-	<span>�������ḻ��Ƥ���Զ���֧��</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>06.22<span>2011</span></h3>
-          <dl>
-            <dt>������crx��ʽ�Ĺ���
-	<span>˫��crx�ļ����ɰ�װ��չ��Ƥ��</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>05.19<span>2011</span></h3>
-          <dl>
-            <dt>���������ں˵�10.0
-	<span>����������밲ȫ����������ղؼл�ͨ</span>
-	</dt>
-          </dl>
-        </li>
-        <li>
-          <h3>04.07<span>2011</span></h3>
-          <dl>
-            <dt>�Ƴ�Ӧ�ÿ���ƽ̨���뿪���߹����û���Դ
-	</dt>
-          </dl>
-        </li>
-       <li>
-          <h3>03.27<span>2011</span></h3>
-          <dl>
-            <dt>����360�ư�ȫ��ַ����
-	<span>����IE9����ģʽ��֧��GPUӲ������</span>
-	</dt>
-          </dl>
-        </li>
-      </ul>
-    </div>
-    <div class="history-date">
-      <ul>
-      	<h2 class="date02"><a href="#nogo">2010��</a></h2>
-        <li>
-          <h3>12.13<span>2010</span></h3>
-          <dl>
-            <dt>���������ں˵�7.0<span>����������ٶȡ���ǿ��ȫ��</span></dt>
-          </dl>
-        </li>
-        <li>
-          <h3>10.20<span>2010</span></h3>
-          <dl>
-            <dt>���������ں˵�6.0<span>����360�ʻ���ͬ�������ղؼ�</span></dt>
-          </dl>
-        </li>
-        <li>
-          <h3>09.15<span>2010</span></h3>
-          <dl>
-            <dt>�׿�˫�˰�ȫ����� - 360�������������
-	<span>�׸�����ɳ�䡢ϵͳ����ע�롢��������̸���ܹ��Ȱ�ȫ���Ƶ�˫�������<br><br></span>
-	</dt>
-	<br><br><br><br>
-          </dl>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
 
-<script src="js/jquery.js"></script> 
-<script src="js/main.js"></script>
-<p align="center">�����������IE8��360��FireFox��Chrome��Safari��Opera�����Ρ��ѹ�������֮��. </p>
-<p align="center">��Դ��<a href="http://sc.chinaz.com/" target="_blank">վ���ز�</a></p>
+
+
+<div class="main"><div class="history" id="my_timeline">  </div></div>
+
+
+
+<!--item文本-->
+<script type="text/html" id="myTimeLineItem">
+
+    <div class="history-date">
+        <ul>
+            <h2 class="first"><a href="#nogo">{day}</a></h2>
+            <li class="green">
+                <h3>10.08<span>2012</span></h3>
+                <dl><dt>{title}<span>{label}</span></dt></dl>
+            </li>
+        </ul>
+    </div>
+
+
+</script>
+
+<!--<script src="js/jquery.js"></script>-->
+<!--<script src="js/main.js"></script>-->
+
+<script src="../../js/layui/layui.js" charset="utf-8"></script>
+
+
+<script>
+    layui.use(["jquery", 'layer','laydate'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var laydate = layui.laydate //日期
+
+        //小爱心
+        var MyLoveHeart="<i class='layui-icon layui-icon-heart-fill' style='font-size: 20px; color: red;'/>";
+        //换行
+        var EnterLine="<BR/>";
+        //音乐  用法  MyMusic.replace('{val}','./music/chuangyi.mp3')
+        var MyMusic="<audio   src='{val}' controls='controls'/>"
+
+
+        var active = {
+            //todo 时间长了 可以将内容写到json文件中
+            all_content:[
+                {"day":"2021年3月","title":"","label":""},
+                {"day":"2021-03-05","title":"第一天 一伴认识","label":"照片第一印象,感觉暖暖哒"},
+                {"day":"2021-03-06","title":"聊天","label":"这个女孩儿总是撩我,哈哈"},
+                {"day":"2021-03-07","title":"加微信","label":"男人要矜持，让妹子来加我"},
+                {"day":"2021-03-08","title":"第一次电话","label":"清晨叫我起床上班"},
+                {"day":"2021-03-09","title":"第一次见面","label":"周二，请假来找我，牛奶山楂球，青年湖四圈，麦当劳，卡片;见面第一印象淑女,嘿嘿,我想抱抱亲亲🤪🤪🤪哈哈，可是地铁口不给我抱抱"},
+                {"day":"2021-03-12","title":"马路边边","label":" 马路边边，饭后遛弯->第一次牵手(手好嫩好滑🤪好好牵 哈哈)和拥抱; 对我爱心 "+MyLoveHeart+" biubiubiu 疯狂撩我!"},
+                {"day":"2021-03-13","title":"自习室","label":" 斯是陋室，惟吾德馨自习室"},
+                {"day":"2021-03-14","title":"通州图书馆","label":" 庆丰包子铺，冷了，没给我衣服穿哈哈;第一次冲咖啡，雀跃的像个小姑娘，在座椅上扭动，幅度之大，以至于旁人投来了好奇的眼光而不知"},
+                {"day":"2021-03-16","title":"来找我","label":" 炒面片，青年湖长椅,第一次亲亲!蜻蜓点水!"},
+                {"day":"2021-03-18","title":"张妈妈","label":" 辣！辣！辣！辣！辣！辣！好吃！好吃！好吃！好吃！好吃！好吃！哈哈！"},
+                {"day":"2021-03-19","title":"周五晚上见面","label":"见姐姐吃饭，晚上下雨；第一次住在一起，妹子很霸气；"},
+                {"day":"2021-03-20","title":"周六","label":" 早上陪伴去推拿，我回家，臭宝去图书馆"},
+                {"day":"2021-03-21","title":"通图","label":"周日"},
+                {"day":"2021-03-23","title":"臭宝宝","label":"晚上给我做饭,竟然不让我插手;中午,大姨妈终于来了,哈哈"},
+                {"day":"2021-03-24","title":"大酱汤","label":"一逛超市买菜,晚上臭宝宝给我做的大酱汤"},
+                {"day":"2021-03-26","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
+                {"day":"2021-03-27","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
+                {"day":"2021-03-28","title":"回家","label":"臭宝贝儿回家3天,超级想念∞"},
+                {"day":"2021-03-29","title":"陪伴","label":"回来之后,互相陪伴3天"},
+                {"day":"2021-03-30","title":"草莓小米粥?","label":"我做饭搞砸了,熬粥,糊了;尬!尬!尬!尬!尬!"},
+                {"day":"2021年4月","title":"","label":""},
+                {"day":"2021-04-02","title":"补个30年生日","label":"白玫瑰蛋糕，香水，大宝宝辛辛苦苦背一包水果，买衣服"},
+                {"day":"2021-04-03","title":"通州图书馆","label":"陪伴推拿检查，留大宝宝独守空房，给臭宝洗臭袜子"},
+                {"day":"2021-04-04","title":"通州图书馆","label":"给臭宝做早饭（煎饺💯），买袜子，买杯子，买零食，衣食住行买买买，离别"},
+                {"day":"2021-04-05","title":"天坛公园","label":"遛遛遛，咔咔咔咔，合生汇逛吃逛吃,糖葫芦,猪蹄,鸡爪,花甲粉,hotwind衬衫"},
+                {"day":"2021-04-08","title":"甚是想念，千里奔见","label":"拉伸嗷嗷叫🤓🤪，饺子🥟，芒果果冻"},
+                {"day":"2021-04-09","title":"Happy Friday","label":"奔奔奔，在外面穿的衣服,回到家不能直接躺床上的问题意见不一,臭宝爱我,妥协了"},
+                {"day":"2021-04-10","title":"通州图书馆","label":"穿臭宝外套拍照🤪，虎虎酒🤨🤨，阿凡达，缺少烛光的烛光晚餐"},
+                {"day":"2021-04-11","title":"通州图书馆","label":"图书馆地铁卡卡卡，散步，加量版湖南米粉，小肚囊鼓鼓哒"},
+                {"day":"2021-04-12","title":"想想想♾️","label":"充充充，冲冲冲，熬熬熬"},
+                {"day":"2021-04-13","title":"夜游前门","label":"夹夹夹,系系系,糖葫芦,东来顺火锅,互相夹菜🤪小男人被臭宝包养的一天,2号线前门地铁小别离"},
+                {"day":"2021-04-14","title":"（想你-∞，+∞想你）","label":"克制克制克制,没有一分钟没有买一送一"},
+                {"day":"2021-04-16","title":"飓能吃","label":"周五 臭宝宝没有上班来接我；我做的皮蛋瘦肉粥，臭宝宝喝了3碗"},
+                {"day":"2021-04-17","title":"被包养","label":"推拿，炎症好了，超市逛逛逛，无沙花甲，烂草莓果冻"},
+                {"day":"2021-04-18","title":"宅宅宅","label":"在家第一次外卖，一起买鲜花（圣心百合、小雏菊没花钱、马蹄莲没买、白玫瑰），跟王善文吃饭"},
+                {"day":"2021-04-19","title":"周一上班","label":"当老师 上课，唉。。。极其不情愿，那就别上了 ok  哈哈 开心了，要罢工了，又不开心了，还是上吧"},
+                {"day":"2021-04-20","title":"周二上班","label":"今天臭宝到家好早呢,在超市买了鱼,晚上给我做的清蒸鱼; 吹风机在室友的屋里,没有吹头发,哼!第二天邋遢遢的上班"},
+                {"day":"2021-04-21","title":"她来了","label":"理发;晚上姨妈来了"},
+                {"day":"2021-04-22","title":"江米条","label":"今天让臭宝贝儿情绪波动了,我是个大坏蛋!"+EnterLine+" 以前的江米条是家和妈妈的味道，现在的江米条是臭宝贝儿的味道，咦~好臭好臭~~~哈哈哈"+MyLoveHeart},
+                {"day":"2021-04-23","title":"搞笑了","label":"误把干净'衣服'给洗了；"+EnterLine+"6.01分的排骨，哈哈"},
+                {"day":"2021-04-24","title":"充电","label":"图书馆，小鲍，小贝，湖南常德米粉"},
+                {"day":"2021-04-25","title":"大坏蛋","label":"今天没有上班,臭宝懒懒的 哈哈，在家给我做好吃的；总是扣我工资，大坏蛋"},
+                {"day":"2021-04-26","title":"周一起床气","label":"赖床的大宝差点儿迟到，天花板疙瘩汤害我又长肉，坏人哼"},
+                {"day":"2021-04-27","title":"虚张声势","label":"MuMA 想找个地洞🕳️钻下去 "},
+                {"day":"2021-04-28","title":"凶我","label":"拿上大巴扎吧，不用了,,,拿上🧐"},
+                {"day":"2021-04-29","title":"红烧排骨","label":"🤪大宝宝翘掉健步走～回家给臭宝烧排骨 ～天花板排骨/不能用分数评价的排骨/硬要打分那就10.01分的排骨～直接秒杀我的6.01～唉～惭愧惭愧"},
+                {"day":"2021-04-30","title":"不知所措","label":"我让大宝宝睡不好～不开心情绪低落了～都是我不好～反思ing～改改改～"},
+                {"day":"2021年5月","title":"","label":""},
+                {"day":"2021-05-01","title":"操心的臭宝","label":"我去衡水参加同学婚礼，臭宝贝儿的操心展现的淋漓尽致？！臭宝去了通图"},
+                {"day":"2021-05-02","title":"想我的臭宝","label":"想我的臭宝啊，嗷呜！！！臭宝去了通图，奥利给"},
+                {"day":"2021-05-03","title":"我和臭宝见面却不能恩爱的一天","label":"带着大瑞和小月月逛绿心公园；和姐姐吃饭；说要给我一个无敌承诺，我想好了，是跳舞，哈哈哈哈哈哈哈"},
+                {"day":"2021-05-04","title":"做好饭等君归","label":"在家做好饭等臭宝下班；花甲、黄瓜荷兰豆、蘑菇"},
+                {"day":"2021-05-05","title":"我爱你","label":"早餐【面包 鸡蛋 火腿 牛奶】...臭宝去上班,我独守空房；琥珀核桃首秀（晾一会儿）；晚上 罗斯福 C&A 买买买，买了一个没穿裤子的裤子"},
+                {"day":"2021-05-06","title":"你学了我的...","label": "憋说话，吻我" + MyLoveHeart+EnterLine + MyMusic.replace('{val}','./music/chuangyi.mp3')},
+                {"day":"2021-05-07","title":"想你","label":"想你想你想你想你……嘴上没说想你，心里也在想你，臭宝宝不要挑我哦"+MyLoveHeart},
+                {"day":"2021-05-08","title":"傻宝宝","label":  MyMusic.replace('{val}','./music/babyisbeautiful2.mp3')},
+                // {"day":"2021-05-09","title":"坏人","label":"好想拥有蓝胖子的口袋 【知识拓展：应该叫做四次元口袋。又名四次元百宝袋、四维口袋,正式名称是“机械人专用四次元空间内藏秘密道具格纳口袋” 】" },
+                {"day":"2021-05-10","title":"钥匙","label":"忘了带钥匙，嗯，一定是臭宝故意为之的"},
+                {"day":"2021-05-11","title":"臭宝贝儿","label":"想让臭宝跳一个乘风破浪的姐姐"},
+                {"day":"2021-05-12","title":"马路边边","label":"臭宝想吃马路边边，明明是馋嘴了，破戒了，还美名曰‘奖励’"},
+                {"day":"2021-05-13","title":"傻宝宝","label":  MyMusic.replace('{val}','./music/imissyou.mp3')},
+
+
+
+            ]
+            ,initContent:function () {
+                // var template_li='<li class="layui-timeline-item" > <a name="{id}"></a> <i class="layui-icon layui-timeline-axis" ></i><div class="layui-timeline-content layui-text"><h2 class="layui-timeline-title" style="color:#009688">{day}</h2><h3>  <b>{title}</b> </h3> {label}  </div></li>'
+                var template_li=$("#myTimeLineItem").html()
+
+                var arr=[]
+                for (var i = 0; i < this.all_content.length; i++) {
+                    var item=this.all_content[i]
+                    //标签：
+                    var temp=template_li.replace("{id}",item.day).replace("{day}",item.day).replace("{title}",item.title).replace("{label}",item.label)
+                    arr.push(temp)
+                }
+                $("#my_timeline").html(arr)
+            }
+
+            ,init:function () {
+                this.initContent();
+            }
+
+        }
+
+        active.init();
+
+    });
+
+
+
+
+</script>
+
 </body>
 </html>
