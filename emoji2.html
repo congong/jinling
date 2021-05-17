@@ -26,18 +26,21 @@
         $ = layui.jquery;
 
         var imgPath="./img/face/face_{Num}.png"
-        var count=10;
+        var count=1000;
         setInterval(function () {
-            console.log(123)
-            var temp=imgPath.replace("{Num}",count);
-            $("#the_img").attr('src',temp)
-            $("#the_img1").attr('src',imgPath.replace("{Num}",count+1))
-            $("#the_img2").attr('src',imgPath.replace("{Num}",count+2))
-            $("#the_img3").attr('src',imgPath.replace("{Num}",count+3))
+            // console.log(123)
+            $("#the_img").attr('src',imgPath.replace("{Num}" ,getRandom(1000,1189)))
+            $("#the_img1").attr('src',imgPath.replace("{Num}",getRandom(1000,1189)))
+            $("#the_img2").attr('src',imgPath.replace("{Num}",getRandom(1000,1189)))
+            $("#the_img3").attr('src',imgPath.replace("{Num}",getRandom(1000,1189)))
 
-            count++;
-            if(count>50) count=10;
+            // count++;
+            // if(count>1200) count=10;
         },200)
+
+        function getRandom(min,max){
+            return Math.ceil(Math.random()*(max-min)+min);
+        }
 
     });
 
