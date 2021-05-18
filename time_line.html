@@ -349,6 +349,7 @@
                 }, false);
                 document.addEventListener("touchstart",play, false);
             }
+            //图片表情
             ,loopImg:function () {
                 var imgPath="./img/face/face_{Num}.png"
                 setInterval(function () {
@@ -361,13 +362,14 @@
                     });
                 },400)
             }
+            //表情
             ,loopEmojisLocalArr:function () {
                 setInterval(function () {
                     $(".the_span_emoji").each(function(){
                         var self=$(this);
                         self.html(emojis[getRandom(0,98)])
                     });
-                },400)
+                },200)
             }
             ,init:function () {
                 this.dispDiffDays();
