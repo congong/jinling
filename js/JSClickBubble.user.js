@@ -31,6 +31,7 @@ onload = function() {
         $elem.style.zIndex = 9999;
         $elem.style.position = "absolute";
         $elem.style.select = "none";
+        $elem.style.userSelect = "none";
         var x = e.pageX;
         var y = e.pageY;
         $elem.style.left = (x - 10) + "px";
