@@ -306,6 +306,12 @@
                 var randVal=Math.floor(Math.random()*theWord.length)
                 console.log(theWord[randVal])
                 $("#theWord").html(theWord[randVal])
+
+                $("#theWord").click(function () {
+                    var randVal=Math.floor(Math.random()*theWord.length)
+                    $("#theWord").html(theWord[randVal])
+                })
+
             }
             ,initdate:function(){
                 // console.log(this.all_content)
