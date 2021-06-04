@@ -457,7 +457,7 @@
                 var thePassword=$(this)
                 var password=$(this).attr("password")
                 //prompt层
-                layer.prompt({title: '输入任何口令，并确认', formType: 1}, function(pass, index){
+                layer.prompt({title: '输入密码，一串你熟悉的数字(6位密码)', formType: 1}, function(pass, index){
                     console.log(pass,password)
                     if(password==pass){
                         layer.msg("解锁成功")
