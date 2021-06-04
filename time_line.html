@@ -460,7 +460,7 @@
                 layer.prompt({title: '输入密码，一串你熟悉的数字(6位密码)', formType: 1}, function(pass, index){
                     console.log(pass,password)
                     if(password==pass){
-                        layer.msg("解锁成功")
+                        layer.msg("解锁成功，你真是这个世上最聪明的女人")
                         thePassword.html(thePassword.attr("realDisplayText"))
                         thePassword.attr("display","false")
                         layer.closeAll();
