@@ -118,9 +118,9 @@
         //音乐  用法  MyMusic.replace('{val}','./music/chuangyi.mp3')
         var MyMusic="<audio   src='{val}' controls='controls'/>"
         //隐藏框文本 val是文本值
-        var pHideText="<p class='pHideText' val='{val}' display='true'>********</p>"
-        //todo 密码隐藏框文本  [点击出现弹框  输入密码]   设计思路是  设计为动态密码 加属性 password="{password}" 900114
-        var inputPassWordHideText="<p class='inputPassWordHideText' realDisplayText='{realDisplayText}' display='true' password='{password}'>********</p>"
+        var pHideText="<p style='color:#00bbff' class='pHideText' val='{val}' display='true'>********</p>"
+        //密码隐藏框文本  [点击出现弹框  输入密码]   设计思路是  设计为动态密码 加属性 password="{password}" 900114
+        var inputPassWordHideText="<p style='color:#cc2a5d' class='inputPassWordHideText' realDisplayText='{realDisplayText}' display='true' password='{password}'>********</p>"
 
         var style_title="padding-top:10px;padding-bottom:5px;background:#afd0c1";
 
@@ -648,6 +648,12 @@
 
     };
 </script>
+
+
+<!--爆炸效果-->
+<canvas class="fireworks" style="position: fixed; left: 0px; top: 0px; z-index: 1; pointer-events: none; width: 1440px; height: 451px;" width="2880" height="902"></canvas>
+<script type="text/javascript" src="./js/anime.min.js"></script>
+
 </body>
 </html>
 
