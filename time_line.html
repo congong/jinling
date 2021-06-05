@@ -55,15 +55,25 @@
     <source src="./music/rangwotoutoukanni.mp3" type="audio/mpeg">
 </audio>
 
-<!--一荤一素-->
-<audio autoplay="autoplay" id="audio2"  loop="loop"  controls="controls">
-    <source src="./music/yihunyisu_normal.mp3" type="audio/mpeg">
-</audio>
+<!--一荤一素 autoplay="autoplay"  -->
+<!--<audio id="audio2"  loop="loop"  controls="controls">-->
+<!--    <source src="./music/yihunyisu_normal.mp3" type="audio/mpeg">-->
+<!--</audio>-->
+
+<audio id="bgMusic"  controls="controls" ></audio>
+
 
 <blockquote class="layui-elem-quote">
     臭宝贝儿,今天是认识你的第<span class="days-number"></span>天<i class="layui-icon layui-icon-heart-fill" style="font-size: 20px; color: red;"></i>
 </blockquote>
 
+<!--功能区按钮-->
+<div class="layui-btn-container">
+    <button class="layui-btn" id="musicBtn">心情音乐</button>
+<!--    <button class="layui-btn ">背景音乐</button>-->
+
+</div>
+<BR>
 <!-- 公告栏时钟控件 | 手机不支持swf  暂时去掉-->
 <!--<div><embed wmode="transparent" src="https://files.cnblogs.com/files/jingmoxukong/honehone_clock_tr.swf" quality="high" bgcolor="#FDF6E3" width="230" height="110" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></div>-->
 <!--日期控件-->
@@ -391,6 +401,7 @@
                 audio.play();//audio.pause();
                 audio2.play();
 
+
                 document.addEventListener("WeixinJSBridgeReady", function () {//微信
                     play();
                 }, false);
@@ -421,15 +432,41 @@
                     });
                 },200)
             }
+            ,initAsk:function () {
+                //./music/yihunyisu_normal.mp3
+                var audio = document.getElementById("bgMusic");
+                //配置一个透明的询问框
+                layer.msg('今天心情怎么样', {
+                    time: 20000, //20s后自动关闭
+                    btn: ['开心', '不开心', '还行吧'],
+                    btn1:function () {
+                        layer.msg('今天很开心 ', {icon: 6});
+                        audio.src = "./music/qiongkaixin.mp3";
+                        audio.play();
+
+                    },btn2:function () {
+                        layer.msg('不开心 ', {icon: 5});
+                        audio.src = "./music/babeishangliugeiziji.mp3";
+                        audio.play();
+                    },btn3:function () {
+                        layer.msg('还行吧 ', {icon: 8});
+                        audio.src = "./music/yihunyisu_normal.mp3";
+                        audio.play();
+                    }
+                });
+                console.log(11111)
+
+            }
             ,init:function () {
                 this.dispDiffDays();
                 this.initContent();
                 this.theEndWord();
                 this.initdate();
                 this.loopEmojisLocalArr();
-                this.autoPlay();
+                //this.autoPlay();
                 // this.loopImg();
-                layer.msg("臭宝贝儿，你好美呀...")
+                this.initAsk();
+                // layer.msg("臭宝贝儿，你好美呀...")
                 layer.close(loaddiv)
             }
 
@@ -470,6 +507,10 @@
                     }
                 });
             }
+        })
+
+        $("#musicBtn").click(function () {
+            active.initAsk()
         })
 
         //生成一个随机数
