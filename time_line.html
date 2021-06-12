@@ -56,11 +56,12 @@
 </audio>
 
 <!--一荤一素 autoplay="autoplay"  -->
-<!--<audio id="audio2"  loop="loop"  controls="controls">-->
-<!--    <source src="./music/yihunyisu_normal.mp3" type="audio/mpeg">-->
-<!--</audio>-->
+<audio id="audio2"  loop="loop"  controls="controls">
+    <source src="./music/yihunyisu_normal.mp3" type="audio/mpeg">
+</audio>
 
-<audio id="bgMusic"  controls="controls" ></audio>
+<!--弹框选择的背景音乐-->
+<!--<audio id="bgMusic"  controls="controls" ></audio>-->
 
 
 <blockquote class="layui-elem-quote">
@@ -230,7 +231,9 @@
                 {"isParent":"is0","day":"2021-06-03","title":"","label":"香宝宝,我想你了；隐藏个小功能，嘿嘿，傻不拉几的臭宝宝，肯定发现不了，哈哈↓↓↓㊦"},
                 {"isParent":"is0","day":"2021-06-04","title":pHideText.replace("{val}","傻不拉几的臭宝宝，嘿嘿"),"label":""},
                 {"isParent":"is0","day":"2021-06-05","title":inputPassWordHideText.replace("{realDisplayText}","下次见到臭宝要买花，不然臭宝会**的").replace("{password}","900114"),"label":"通图；晚上略次巅峰的打卤面；臭宝买的辣椒好吃"},
-                {"isParent":"is0","day":"2021-06-09","title":"","label":"傻不拉几的宝宝,周公之礼都不知道啥意思"},
+                {"isParent":"is0","day":"2021-06-08","title":"面试","label":"来面试咯～下班回家面试去咯"},
+                {"isParent":"is0","day":"2021-06-09","title":"继续面","label":"稍微有了那么一丢丢感觉咯～傻不拉叽的宝宝，周公之礼都不知道啥意思"},
+                {"isParent":"is0","day":"2021-06-10","title":"山竹子大粽子","label":"给臭宝送山竹子大粽子～飞奔到家面试～表现略差依旧被面试官看上了～她定是对大宝宝有什么非分之想"},
 
             ]
             ,initContent:function () {
@@ -463,10 +466,10 @@
                 this.theEndWord();
                 this.initdate();
                 this.loopEmojisLocalArr();
-                //this.autoPlay();
+                this.autoPlay();
                 // this.loopImg();
-                this.initAsk();
-                // layer.msg("臭宝贝儿，你好美呀...")
+                // this.initAsk();
+                layer.msg("臭宝贝儿，你好美呀...")
                 layer.close(loaddiv)
             }
 
