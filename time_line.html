@@ -81,7 +81,7 @@
 <div class="layui-inline" id="DisplayDateID"></div>
 <hr>
 <!--时间线-->
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend><h2>2021年时间线</h2></legend></fieldset>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"><legend><h2 id="yearTitle">2021年时间线</h2></legend></fieldset>
 <ul class="layui-timeline" id="my_timeline"></ul>
 
 <a href="" name="pageBottom"></a>
@@ -286,6 +286,9 @@
                         })
                     }
                 }//end for
+
+                //
+                $("#yearTitle").append( "<span style='font-size: 20px;color:red;'>共{val}条</span>".replace("{val}",this.all_content.length) )
 
             }
             ,dispDiffDays:function () {
