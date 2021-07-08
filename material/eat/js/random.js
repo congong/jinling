@@ -25,7 +25,7 @@
                         $(this).remove();
                     });
                 });
-            }, 50);
+            }, 100);
             run = 1;
         } else {
            heading.html(heading.html().replace("吃什么？", "吃这个！"));
