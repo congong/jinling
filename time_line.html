@@ -138,10 +138,13 @@
         //分组单击标志 使用字典存储状态
         var click_flag_dict={}
 
-        //表情 imgEmoji.repeat(3);
+        //动图每400毫秒变动一次
+        var loopTime=400;
+        //图片表情 imgEmoji.repeat(3);
         var imgEmoji="<img class='the_img'/>";
-        //表情 spanEmoji.repeat(3);
-        var spanEmoji="<span style='font-size:80px;color:#9c0f0d' class='the_span_emoji'/>";
+        //文字表情 spanEmoji.repeat(3); 使用repeat(int)方法，可以复制好多个标签
+        var wordSpanEmoji="<span style='font-size:80px;color:#9c0f0d' class='the_span_emoji'/>";
+
 
 
         var active = {
@@ -211,7 +214,7 @@
                 {"isParent":"is0","day":"2021-05-13","title":"傻宝宝","label":  MyMusic.replace('{val}','./music/imissyou.mp3')},
                 {"isParent":"is0","day":"2021-05-14","title":"功能更新","label":"添加了月份分组；添加了回到顶部/底部"},
                 {"isParent":"is0","day":"2021-05-15","title":"图书馆","label":"傻宝宝懵圈五点闭馆"},
-                {"isParent":"is0","day":"2021-05-16","title":"你要的又大又多的emoji","label":spanEmoji.repeat(12)},
+                {"isParent":"is0","day":"2021-05-16","title":"你要的又大又多的emoji","label":wordSpanEmoji.repeat(12)},
                 {"isParent":"is0","day":"2021-05-17","title":"520","label":"大后天520！"+MyLoveHeart},
                 {"isParent":"is0","day":"2021-05-18","title":"逛","label":"臭宝陪我买衣服；万达hotwind椰子蟹&罗斯福CA短袖"},
                 {"isParent":"is0","day":"2021-05-19","title":"疯狂","label":"下班回家疯狂的臭宝宝，啧啧~~~"},
@@ -291,13 +294,14 @@
                 {"isParent":"is0","day":"2021-11-06","title":"你犯了两个致命错误","label":"我周六加班；臭宝自己去天津取纪念币"+EnterLine+"错误一："+inputPassWordHideText.replace("{realDisplayText}","回家的问题，闭口不谈，也不吭声，沉默了，你把我妈化妆品都买了，却不提及此事了，是我们敢情又出问题了吧").replace("{password}","675979")+EnterLine+"错误二："+inputPassWordHideText.replace("{realDisplayText}","纪念币的问题，我也不是真的要你纪念币，你反应那么大干嘛，那么决绝，然后你也感觉到不合适了，然后又沉默了").replace("{password}","675979")},
                 {"isParent":"is0","day":"2021-11-07","title":"立冬","label":"立冬；蒸包子；大风大雪，雪地撒欢的臭宝、去秘密基地堆雪人，拍照；看小电影痴迷"+imgEmoji},
                 {"isParent":"is0","day":"2021-11-08","title":"今天好冷","label":"周一臭宝去北京市中医药看病了;买的螺狮粉到群芳园了；早上出门&晚上回家，好冷，带臭宝的抗风神奇围巾"},
-                {"isParent":"is0","day":"2021-11-09","title":"好冷+2","label":"傻"+spanEmoji.repeat(2)+"宝"+spanEmoji.repeat(2)+"宝"+spanEmoji.repeat(2)},
+                {"isParent":"is0","day":"2021-11-09","title":"好冷+2","label":"傻"+wordSpanEmoji.repeat(2)+"宝"+wordSpanEmoji.repeat(2)+"宝"+wordSpanEmoji.repeat(2)},
                 {"isParent":"is0","day":"2021-11-10","title":"臭宝说：","label":"傻不啦叽的宝下班去优衣库买秋衣，结果没打折没买，哈哈；傻宝说周六要回家，不能陪我了，回来打屁股；父母过生日，我偷偷的买了25in蛋糕，嘿嘿~~~"+imgEmoji},
                 {"isParent":"is0","day":"2021-11-12","title":"心机宝：","label":"为了退掉掉蛋糕，骗我说不回家了..."},
                 {"isParent":"is0","day":"2021-11-14","title":"心机宝：","label":"傻宝回到家后，装死，不理我，不回微信..."},
                 {"isParent":"is0","day":"2021-11-15","title":"臭宝说：","label":"臭宝说要给我买糯米糖葫芦"},
                 {"isParent":"is0","day":"2021-11-16","title":"臭宝说：+3","label":"臭宝说土味+N，土的掉渣"},
                 {"isParent":"is0","day":"2021-11-17","title":"幸运宝","label":"巴西木，也叫幸运木，以后会给你带来幸运，快乐的！晚安"},
+                {"isParent":"is0","day":"2021-11-18","title":"嗷呜","label":"嗷呜嗷呜嗷呜……"+appointEmojis(44,100)},
 
 
             ]
@@ -491,16 +495,16 @@
                         // console.log(self.attr('src'));
                         self.attr('src',imgPath.replace("{Num}" ,getRandom(1000,1050)))
                     });
-                },400)
+                },loopTime)
             }
-            //表情
+            //文字表情
             ,loopEmojisLocalArr:function () {
                 setInterval(function () {
                     $(".the_span_emoji").each(function(){
                         var self=$(this);
                         self.html(emojis[getRandom(0,98)])
                     });
-                },200)
+                },loopTime)
             }
             ,initAsk:function () {
                 //./music/yihunyisu_normal.mp3
@@ -602,6 +606,7 @@
 <!--小爱心特效2-->
 <script>
 
+    //可以在文本中直接指定表情，比如emojis[72]
     var emojis=[
         "❤",
         "😀",
@@ -702,6 +707,17 @@
         "😼",
         "😻"
     ]
+    //用户可以通过下表指定表情
+    function appointEmojis(index,fontSize){
+        if(index<0 || index>emojis.length-1){
+            return "表情指示有误";
+
+        }
+        return "<span  style='font-size:"+fontSize+"px;color:#9c0f0d'>"+emojis[index]+"</span>";
+    }
+
+    console.log(emojis)
+
     onload = function() {
         var click_cnt = 0;
         var $html = document.getElementsByTagName("html")[0];
