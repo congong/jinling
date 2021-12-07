@@ -573,7 +573,11 @@
             }
         })
 
-        //密码隐藏框事件         var inputPassWordHideText="<p class='inputPassWordHideText' realDisplayText='{realDisplayText}' display='true' password='{password}'>********</p>"
+        /**
+         * @author zcc
+         * @description 密码隐藏框事件
+         * @example   var inputPassWordHideText="<p class='inputPassWordHideText' realDisplayText='{realDisplayText}' display='true' password='{password}'>********</p>"
+         */
         $(".inputPassWordHideText").click(function () {
             if($(this).attr("display")=="false"){
                 $(this).html("********")

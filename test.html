@@ -1,71 +1,31 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Layui</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
-    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
-    <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
-    <meta HTTP-EQUIV="expires" CONTENT="0">
 
 
 </head>
 <body>
 
 
-<audio id="bgMusic"></audio>
+
+<script src="./js/md5.js"></script>
 
 <script>
-    var audio = document.getElementById("bgMusic");
-    audio.src = "./music/babyisbeautiful2.mp3";
-    audio.play();
+
+    function n(){
+        console.log(hex_md5('123456'));
+        alert(hex_md5('123456'))
+    }
+
+    console.log(123)
 
 </script>
-<!--
-audio 教程
-https://www.cnblogs.com/qianduanjingying/p/5531397.html
-var audio = document.getElementById("bgMusic");
 
-//播放(继续播放)
-audio.play();
-
-//暂停
-audio.pause();
-
-//停止
-audio.pause();
-audio.currentTime = 0;
-
-//重新播放
-audio.currentTime = 0;
-audio.play();
-
-
-
-2，也可以动态的创建<audio>元素
-
-//方式1
-var audio = document.createElement("audio");
-audio.src = "hangge.mp3";
-audio.play();
-
-//方式2
-var audio = new Audio("hangge.mp3");
-audio.play();
-
-
--->
-
-
-
-<!-- 点击爆炸效果-->
-<canvas class="fireworks" style="position: fixed; left: 0px; top: 0px; z-index: 1; pointer-events: none; width: 1440px; height: 451px;" width="2880" height="902"></canvas>
-
-<script type="text/javascript" src="./js/anime.min.js"></script>
+<div>
+    <button onclick="n()">start</button>
+</div>
 
 
 
