@@ -594,7 +594,7 @@
             }
         })
 
-       //密码隐藏框事件         var inputPassWordHideText="<p class='inputPassWordHideText' realDisplayText='{realDisplayText}' display='true' password='{password}'>********</p>"
+       //密码隐藏框事件         var inputPassWordHideText="<p class='inputPassWordHideText' realDisplayText='{realDisplayText}' display='true' password='{password2}'>********</p>"
         $(".inputPassWordHideText").click(function () {
             if($(this).attr("display")=="false"){
                 $(this).html("********")
@@ -603,7 +603,7 @@
                 var thePassword=$(this)
                 var password=$(this).attr("password2")
                 //prompt层
-                var layerPromtp=layer.prompt({title: '你很熟悉的密码哟(6位密码)', formType: 1}, function(pass, index){
+                var layerPromtp=layer.prompt({title: '你很熟悉的密码哟(X位密码)', formType: 1}, function(pass, index){
                     console.log(pass,password)
                     if(password==pass){
                         layer.msg("小样儿~可以呀")
