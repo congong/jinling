@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+
+
+
+</head>
+
+<style>
+    .word{
+        color:red;
+    }
+</style>
+
+<body>
+
+
+
+<script src="./js/md5.js"></script>
+<script src="./material/m5/js/jquery.js"></script>
+
+
+
+<div>
+    设置密码：<input type="text" id="inputPass"/>
+    <button onclick="n()">加密</button>
+
+    <p class="word"></p>
+
+
+
+</div>
+
+<div>
+    使用方法： inputPassWordHideText.replace("{realDisplayText}","加密内容").replace("{password}","<span class="word">要替换的加密密码</span>")},
+</div>
+
+<script>
+
+    function n(){
+        inputPass=$("#inputPass").val();
+        $("p").html("加密的密码是："+hex_md5(inputPass));
+        $("span").html(hex_md5(inputPass));
+
+
+    }
+
+    console.log(123)
+
+</script>
+
+
+
+</body>
+</html>

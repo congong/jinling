@@ -13,7 +13,11 @@
 
     <link rel="stylesheet" href="js/layui/css/layui.css"  media="all">
 
-<!--    小爱心特效-->
+    <!--  md5加密  -->
+    <script src="./js/md5.js"></script>
+
+
+    <!--    小爱心特效-->
 <!--    <script src="./js/JSClickBubble.user.js"></script>-->
 
 
@@ -312,7 +316,7 @@
 
                 {"isParent":"is1","day":"2021年12月","title":"","label":""},
                 {"isParent":"is0","day":"2021-12-01","title":"惊喜","label":"傻宝竟然自己会更新了；我更新了，再用的时候记得先更新，再编辑哈"},
-                {"isParent":"is0","day":"2021-12-04","title":"copy paste","label":"有惊喜哟~"+EnterLine+ inputPassWordHideText.replace("{realDisplayText}","煎带鱼，大骨头炖白菜，小鸡炖香菇，拍黄瓜，满是核的糖葫芦，万万没想到竟是这吧，哈哈哈哈").replace("{password}","zzcc0000")},
+                {"isParent":"is0","day":"2021-12-04","title":"copy paste","label":"有惊喜哟~"+EnterLine+ inputPassWordHideText.replace("{realDisplayText}","煎带鱼，大骨头炖白菜，小鸡炖香菇，拍黄瓜，满是核的糖葫芦，万万没想到竟是这吧，哈哈哈哈").replace("{password}","7331911bc8d6211700a03224e2efa02a")},
                 {"isParent":"is0","day":"2021-12-05","title":"买衣服难难难","label":"买衣服真是难于上青天，三张刮刮乐，淡然无味的回转自助小火锅失败"},
 
 
@@ -583,12 +587,19 @@
                 $(this).html("********")
                 $(this).attr("display","true")
             }else{
+                //当前密码框
                 var thePassword=$(this)
-                var password=$(this).attr("password")
+                //提前定义好的密码
+                var beforeDefinePassword=$(this).attr("password")
+
                 //prompt层
                 var layerPromtp=layer.prompt({title: '输入密码，一串你熟悉的数字(6位密码)', formType: 1}, function(pass, index){
-                    console.log(pass,password)
-                    if(password==pass){
+                    //pass是弹框中输入的值，即用户输入的密码
+                    console.log(pass,beforeDefinePassword)
+                    //对输入的密码加密
+                    pass=hex_md5(pass)
+                    console.log("输入的加密串是："+pass)
+                    if(beforeDefinePassword==pass){
                         layer.msg("解锁成功，你真是这个世上最聪明的女人")
                         thePassword.html(thePassword.attr("realDisplayText"))
                         thePassword.attr("display","false")
